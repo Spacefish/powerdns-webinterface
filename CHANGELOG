@@ -1,0 +1,24 @@
+1.2 (2011-09-02)
+ - changed all links to be relativ instead of absolute
+   to allow install in subdirectorys
+ - fixed a bug where domains without SOA records can´t be
+   editted
+ - Fixed multiple php 5.3 notices (some may still remain)
+
+1.1 (2010-09-25)
+ - first upstream release
+ - added session and auth support
+ - added multiple user support
+ - added permission system
+ - added INSTALL instructions and README
+
+1.0 (2009-11-07)
+ - first version of webdns interface
+
+0.2 (2009-07-22)
+ - added smarty support
+ - added autoloading support
+
+0.1 (2009-05-03)
+ - initial Framework version 
+

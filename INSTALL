@@ -1,0 +1,16 @@
+Pre-Requirements:
+- Running and installed pdns server which uses mysql as a backend
+- php support on the webserver (php > 5.x.x should work)
+
+Step by Step:
+1. Import the install.sql file into your existant pdns database
+2. Upload everything from the web folder to a folder on your server
+   which is accesible via your webbrowser
+3. open configs/db.php and insert your pdns db information
+4. goto the url where you uploaded everything and login with admin : admin
+5. CHANGE YOUR PASSWORD!!!
+
+
+For extra security you can create a htdocs directory and move the img folder and the index.php to that folder,
+set your webserver docroot to this folder then and prepend the includestatement in index.php with ../
+I moved index.php and img to the rootfolder for not so experienced users.

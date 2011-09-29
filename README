@@ -1,0 +1,15 @@
+This is a webinterface for powerdns.
+It´s written in php and javascript and uses mysql as a backend.
+Supported features are:
+
+- multiple user support
+- permission system
+- templating on domain and global basis
+- edit, review commit principle (flag for deletion and only delete if you click save)
+- automagic PTR creation, removal and updating if reverse zone is managed by the same DNS server
+- automagic SOA record updating (serial)
+- ipv6 support for reversezones
+- search features for records and domains
+- some minor zone checking
+
+if you encounter bugs or have a question please don´t hesitate to mail me: timo.witte@googlemail.com

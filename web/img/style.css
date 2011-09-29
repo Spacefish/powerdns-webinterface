@@ -1,0 +1,168 @@
+body {
+	margin: 0px;
+	font-family: helvetica;
+}
+
+a {
+	text-decoration: none;	
+}
+
+.menu_left {
+	background-color: #fee; 
+	width: 10em;
+	height: 100%;
+	float: left;
+	padding-top: 10px;
+}
+
+.menu_left ul {
+	
+}
+
+.menu_left a {
+	color: #555;
+	text-decoration: none;
+}
+
+.menu_left #m1 {
+	list-style-image:url('icons/application_view_list.png');
+}
+
+.menu_left #m2 {
+	list-style-image:url('icons/database.png');
+}
+
+.menu_left #m22 {
+	list-style-image:url('icons/database_key.png');
+}
+
+.menu_left #m5 {
+	list-style-image:url('icons/server_database.png');
+}
+
+.menu_left #m3 {
+	list-style-image:url('icons/database_go.png');
+}
+
+.menu_left #m4 {
+	list-style-image:url('icons/user.png');
+}
+
+.webdns_header {
+	font-weight: bold;
+	padding: 10px;
+	font-size: 15px;
+	background-color: #fcc;
+	border-bottom: 1px solid #f99;
+	width: 100%;
+	height: 20px;
+	color: #755;
+}
+
+.contentbox {
+	padding: 10px;
+}
+
+.contentbox_withmenu {
+	padding: 10px;
+	margin-left: 10em;
+}
+
+.logout_button {
+	margin-top: 2px;
+	margin-right: 30px;
+	float:right;
+	font-size: 12px;
+}
+
+.logout_button a {
+	line-height: 16px;
+	color: #558;
+	text-decoration: none;
+	vertical-align: middle;
+}
+
+.logout_button img {
+	vertical-align: top;	
+}
+
+.hairlinebox {
+	margin: auto;
+	border: 1px solid #ccc;
+	padding: 10px;	
+}
+
+.list {
+}
+
+.list th {
+	background-color: #f66;
+	padding: 5px;
+}
+
+.list td {
+	padding: 3px;
+	cursor: pointer;
+}
+
+.search_highlight {
+	color: #f00;
+	font-weight: bold;	
+}
+
+.box {
+	background-color: #eee;
+	margin: auto;
+	padding: 10px;
+	margin-top: 20px;
+}
+
+.msgbox {
+	font-size: 14px;	
+}
+
+.msgbox img {
+	width: 20px;
+	margin-right: 3px;
+	vertical-align: bottom;
+}
+
+.box_ok {
+	margin-bottom: 10px;
+	padding: 10px;
+	font-weight: bold;
+	border: 5px #0e0 solid;
+	background-color: #9f9;
+}
+
+.box_warning {
+	margin-bottom: 10px;
+	padding: 10px;
+	font-weight: bold;
+	border: 5px #ee0 solid;
+	background-color: #ff9;
+}
+
+.box_error {
+	margin-bottom: 10px;
+	padding: 10px;
+	font-weight: bold;
+	border: 5px #e00 solid;
+	background-color: #f99;
+}
+
+.box_info {
+	margin-bottom: 10px;
+	padding: 10px;
+	font-weight: bold;
+	border: 5px #77f solid;
+	background-color: #ccf;
+}
+
+.copyleft {
+	margin-top: 20px;
+	width: 100%;
+	text-align: center;
+	font-size: 12px;
+	color: #999;
+}
