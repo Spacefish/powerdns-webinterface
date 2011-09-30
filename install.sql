@@ -18,7 +18,7 @@ CREATE TABLE `template_newrecord` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `template_newrecord` VALUES('ttl', '86400');
-INSERT INTO `template_newrecord` VALUES('name', '[DOMAIN]');
+INSERT INTO `template_newrecord` VALUES('name', '');
 INSERT INTO `template_newrecord` VALUES('prio', '0');
 
 CREATE TABLE `template_newrecord_domain` (
@@ -38,17 +38,22 @@ CREATE TABLE `template_records_newdomain` (
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1;
 
+INSERT INTO `template_records_newdomain` (`id`, `name`, `type`, `content`, `ttl`, `prio`) VALUES(2, '', 'MX', 'mail.[DOMAIN]', 300, 0);
+INSERT INTO `template_records_newdomain` (`id`, `name`, `type`, `content`, `ttl`, `prio`) VALUES(3, 'mail', 'CNAME', '[DOMAIN]', 300, 0);
+INSERT INTO `template_records_newdomain` (`id`, `name`, `type`, `content`, `ttl`, `prio`) VALUES(4, '', 'SOA', 'dns.[DOMAIN]. hostmaster.[DOMAIN]. 1 86400 86400 604800 300', 300, 0);
+
 CREATE TABLE `user` (
   `id` int(11) NOT NULL auto_increment,
   `username` varchar(255) collate utf8_unicode_ci NOT NULL,
   `password` char(32) collate utf8_unicode_ci NOT NULL,
   `isAdmin` tinyint(4) NOT NULL,
-  `last_login` datetime NOT NULL,
-  `last_ip` char(15) collate utf8_unicode_ci NOT NULL,
+  `canCreateDomain` tinyint(4) NOT NULL,
+  `lastLogin` datetime NOT NULL,
+  `lastIp` char(15) collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
 
-INSERT INTO `user` VALUES(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, '0000-00-00 00:00:00', '');
+INSERT INTO `user` VALUES(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, 1, '0000-00-00 00:00:00', '');
 
 CREATE TABLE `actionlog` (
   `id` int(11) NOT NULL auto_increment,

@@ -58,6 +58,9 @@ class Action_Domains extends Action {
 	public function newDomain() {
 		$this->app->Auth->forceAuth();
 
+		if(!$this->app->Session->data['auth']['canCreateDomain'])
+			throw new Exception("You don´t have the permission to create a new domain!");
+
 		$this->db = $this->app->DB;
 		$domain = $this->post['domain_name'];
 		
@@ -96,7 +99,7 @@ class Action_Domains extends Action {
 
 			$sql = "INSERT INTO records SET ";
 			$sql.= "domain_id = ".(int)$domain_id.", ";
-			$sql.= "name = '".addslashes($template_row['name'])."', ";
+			$sql.= "name = '".addslashes($template_row['name']).($template_row['name'] ? "." : "").addslashes($domain)."', ";
 			$sql.= "type = '".addslashes($template_row['type'])."', ";
 			$sql.= "content = '".addslashes($template_row['content'])."', ";
 			$sql.= "ttl = ".(int)$template_row['ttl'].", ";

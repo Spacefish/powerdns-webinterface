@@ -41,7 +41,8 @@ class Action_Users extends Action {
 
 				$sql = "UPDATE user SET ";
 				$sql.= "username = '".addslashes($e['username'])."', ";
-				$sql.= "isAdmin = '".($e['isadmin'] == 1 ? 1 : 0)."' ";
+				$sql.= "isAdmin = '".($e['isadmin'] == 1 ? 1 : 0)."', ";
+				$sql.= "canCreateDomain = '".($e['cancreatedomain'] == 1 ? 1 : 0)."' ";
 				$sql.= "WHERE id = ".$e['id'];
 				$this->db->query($sql);
 

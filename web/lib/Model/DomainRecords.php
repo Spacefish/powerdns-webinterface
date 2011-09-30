@@ -14,6 +14,21 @@ class Model_DomainRecords extends Model {
 	public function getRecordlistByDomainId($domain_id) {
 		$data = $this->db->getAll("SELECT * FROM records WHERE domain_id = ".(int)$domain_id." ORDER BY name ASC");
 		usort($data, array($this, "valcmp"));
+		
+		return $this->postProcess($data, $this->getDomainName($domain_id));
+	}
+
+	private function getDomainName($id) {
+		return $this->db->getOne("SELECT name FROM domains WHERE id = ".(int)$id);
+	}
+
+	private function postProcess($data, $domainname) {
+		foreach($data as $key => $value) {
+			if($value['name'] == $domainname)
+				$data[$key]['name'] = "";
+			else
+				$data[$key]['name'] = str_replace(".".$domainname, "", $value["name"]);
+		}
 		return $data;
 	}
 
@@ -88,9 +103,11 @@ class Model_DomainRecords extends Model {
 	}
 
 	public function newRecord($data) {
+		$domainName = $this->getDomainName($data['domain_id']);
+
 		$sql = "INSERT INTO records SET ";
 		$sql.= "domain_id = ".(int)$data['domain_id'].", ";
-		$sql.= "name = '".addslashes($data['name'])."', ";
+		$sql.= "name = '".addslashes($data['name']).($data['name'] ? "." : "").$domainName."', ";
 		$sql.= "type = '".addslashes($data['type'])."', ";
 		$sql.= "content = '".addslashes($data['content'])."', ";
 		$sql.= "ttl = ".(int)$data['ttl'].", ";
@@ -101,8 +118,10 @@ class Model_DomainRecords extends Model {
 	}
 
 	public function updateRecord($id, $data) {
+		$domainName = $this->getDomainName($data['domain_id']);
+
 		$sql = "UPDATE records SET ";
-		$sql.= "name = '".addslashes($data['name'])."', ";
+		$sql.= "name = '".addslashes($data['name']).($data['name'] ? "." : "").$domainName."', ";
 		$sql.= "type = '".addslashes($data['type'])."', ";
 		$sql.= "content = '".addslashes($data['content'])."', ";
 		$sql.= "ttl = ".(int)$data['ttl'].", ";

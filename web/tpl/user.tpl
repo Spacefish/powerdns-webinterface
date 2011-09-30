@@ -15,6 +15,11 @@
 				'name' : 'isadmin',
 				'type': 'checkbox',
 				'offset' : 2
+			},
+			{
+				'name' : 'cancreatedomain',
+				'type': 'checkbox',
+				'offset' : 3
 			}
 		]
 	};
@@ -89,3 +94,5 @@
 	{include file="user_list.tpl"}
 </div>
 <input type="button" value="Save" onclick="saverows(fields);" />
+<br />
+<span style="color: #999; font-size: 12px;">The user has to relogin for changes to take effect!</span>

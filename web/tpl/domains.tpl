@@ -100,6 +100,7 @@ $(document).ready(function() {
 </script>
 {/literal}
 
+{if $_SESSION.auth.canCreateDomain}
 <div style="border: 1px #888 solid; padding: 10px; color: #555; font-size: 14px;">
 	<table>
 		<tr>
@@ -114,6 +115,8 @@ $(document).ready(function() {
 	<a href="#" onclick="createDomain(); return false;"><img src="img/icons/add.png" /> Create new domain</a>
 </div>
 <br />
+{/if}
+
 <div style="border: 1px #888 solid; padding: 10px; color: #555; font-size: 14px;">
 	Search: <input type="text" id="searchbox" onkeyup="search(this);"><br />
 </div>

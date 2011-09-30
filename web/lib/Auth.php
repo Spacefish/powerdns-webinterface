@@ -61,7 +61,7 @@ class Auth {
 	}
 
 	public function auth($username, $password) {
-		$sql = "SELECT id, username, last_login, last_ip, isAdmin ";
+		$sql = "SELECT id, username, lastLogin, lastIp, isAdmin, canCreateDomain ";
 		$sql.= "FROM user WHERE ";
 		$sql.= "username = '".addslashes($username)."' AND ";
 		$sql.= "password = '".md5($password)."'";
@@ -73,11 +73,12 @@ class Auth {
 				"userid"	=> $row['id'],
 				"username"	=> $row['username'],
 				"isAdmin"	=> $row['isAdmin'],
-				"last_login"=> $row['last_login'],
-				"last_ip"	=> $row['last_ip'],
+				"canCreateDomain" => $row['canCreateDomain'],
+				"lastLogin"	=> $row['lastLogin'],
+				"lastIp"	=> $row['lastIp'],
 			);
 
-			$sql = "UPDATE user SET last_login = NOW(), last_ip = '".$_SERVER['REMOTE_ADDR']."' WHERE id = ".$row['id'];
+			$sql = "UPDATE user SET lastLogin = NOW(), lastIp = '".$_SERVER['REMOTE_ADDR']."' WHERE id = ".$row['id'];
 			$this->db->query($sql);
 
 			$this->app->ActionLog->log("auth", $username." hat sich erfolgreich von ".$_SERVER['REMOTE_ADDR']." authentifiziert!");
