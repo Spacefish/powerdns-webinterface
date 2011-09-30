@@ -70,6 +70,9 @@ class Application {
 			case "Log":
 				return $this->Log = Log::get($this);
 				break;
+			case "Configuration":
+				return $this->Configuration = Configuration::get($this);
+				break;
 		}
 	}
 

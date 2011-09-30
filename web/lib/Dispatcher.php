@@ -40,7 +40,7 @@ class Dispatcher {
 		}
 
 		if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] == "XMLHttpRequest") {
-			$ar['html'] = $html;
+			$ar['html'] = isset($html) ? $html : "";
 			echo json_encode($ar);
 		}
 		else {

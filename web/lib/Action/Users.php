@@ -2,16 +2,25 @@
 
 class Action_Users extends Action {
 	private $db;
+	private $cfg;
 
 	public function save() {
 		$this->app->Auth->forceAuth();
 		$this->app->Auth->forceAdmin();
 
 		$this->db = $this->app->DB;
+		$this->cfg = $this->app->Configuration->load("base");
 
-		if(is_array($this->post['delete'])) {
+		if(isset($this->post['delete']) && is_array($this->post['delete'])) {
 			foreach($this->post['delete'] as $e) {
-				$this->app->ActionLog->log("users", $this->db->getOne("SELECT username FROM user WHERE id = ".(int)$e)." deleted");
+				$username = $this->db->getOne("SELECT username FROM user WHERE id = ".(int)$e);
+	
+				if($this->cfg['demomode'] && $username == "admin") {
+					$this->msg(self::MSG_WARN, "User admin can´t be deleted in demomode!");
+					continue;
+				}
+
+				$this->app->ActionLog->log("users", $username." deleted");
 
 				$this->db->query("DELETE FROM user WHERE id = ".(int)$e);
 				$this->db->query("DELETE FROM perm WHERE userid = ".(int)$e);
@@ -19,9 +28,16 @@ class Action_Users extends Action {
 			}
 		}
 
-		if(is_array($this->post['data'])) {
+		if(isset($this->post['data']) && is_array($this->post['data'])) {
 			foreach($this->post['data'] as $e) {
 				$wasadmin = $this->db->getOne("SELECT isAdmin FROM user WHERE id = ".(int)$e['id']);
+				$username = $this->db->getOne("SELECT username FROM user WHERE id = ".(int)$e['id']);
+
+				if($this->cfg['demomode'] && $username == "admin") {
+                                        $this->msg(self::MSG_WARN, "User admin can´t be modified in demomode!");
+                                        continue;
+                                }
+
 
 				$sql = "UPDATE user SET ";
 				$sql.= "username = '".addslashes($e['username'])."', ";
