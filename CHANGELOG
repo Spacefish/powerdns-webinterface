@@ -1,3 +1,14 @@
+1.3 (2011-09-30)
+ - domain editor now automatically appends domain name to
+   the records (transparent to the user)
+ - You can now define if a user has the right to create new
+   domains.
+ - A "Demomode" was added, which allows to block the change
+   or deletion of the admin user.
+ - added default records for new domain creation to the
+   install.sql
+ - changed versioning system from mercurial to git
+
 1.2 (2011-09-02)
  - changed all links to be relativ instead of absolute
    to allow install in subdirectorys

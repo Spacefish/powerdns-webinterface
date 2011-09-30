@@ -1,0 +1,6 @@
+From 1.2 to 1.3
+Copy the contents of the web directory to your current installation
+and execute the update_1.2-1.3.sql script inside the mysql database.
+
+From 1.* to 1.2
+Just copy the contents of the web directory to your current installation
