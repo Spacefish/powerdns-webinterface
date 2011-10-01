@@ -1,0 +1,9 @@
+# temp files of text editors
+*~
+
+# eclipse dirs
+web/.buildpath
+web/.project
+web/.settings/
+
+

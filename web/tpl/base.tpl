@@ -60,7 +60,7 @@
 			<div id="msg"></div>
 			{include file=$_TEMPLATE}
 			<div class="copyleft">
-				Copyright 2010 Timo Witte Licensed under the Apache License (2.0)
+				Copyright 2011 Timo Witte Licensed under the Apache License (2.0)
 			</div>
 		</div>
 	</body>
