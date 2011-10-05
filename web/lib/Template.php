@@ -37,7 +37,7 @@ class Template extends Smarty {
 		$basedir = dirname(dirname(__FILE__));
 		$this->assign("_TEMPLATE", $tpl);
 
-		$this->app->Log->debug("Rendering Page ".$tpl." with basetpl ".$this->basetpl." basedir is ".$basedir);
+		$this->app->Log->debug(sprintf(__("Rendering Page %s with basetpl %s basedir is %s"), $tpl, $this->basetpl, $basedir));
 
 		parent::display($this->basetpl);
 	}

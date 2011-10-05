@@ -37,7 +37,7 @@ class Configuration {
 				return $this->configs[$name] = $cfg[$name];
 		}
 		else
-			throw new Exception("Configuration File ".$name.".php not found in configs folder!");
+			throw new Exception(sprintf(__("Configuration File %s.php not found in configs folder!"), $name));
 	}
 }
 

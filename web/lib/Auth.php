@@ -32,19 +32,19 @@ class Auth {
 	}
 
 	public function forceAuth() {
-		$this->app->Log->debug("Forcing Auth");
+		$this->app->Log->debug(__("Forcing Auth"));
 		if(!$this->isAuthed()) {
 			// redirect
 			$newloc = "?p=login&pp[redirect_page]=".$_GET['p']."&pp[redirect_params]=".urlencode(serialize($_GET['pp']));
 			header("Location: ".$newloc, 307);
-			echo "you are not authed and should have been redirected!";
+			echo __("you are not authed and should have been redirected!");
 			exit;
 		}
 	}
 
 	public function forceAdmin() {
 		if(!$this->isAdmin()) {
-			throw new Exception("Zugriff nur durch Administrator gestattet!");
+			throw new Exception(__("Only admins have permission to access this area!"));
 		}
 	}
 
@@ -81,12 +81,12 @@ class Auth {
 			$sql = "UPDATE user SET lastLogin = NOW(), lastIp = '".$_SERVER['REMOTE_ADDR']."' WHERE id = ".$row['id'];
 			$this->db->query($sql);
 
-			$this->app->ActionLog->log("auth", $username." hat sich erfolgreich von ".$_SERVER['REMOTE_ADDR']." authentifiziert!");
+			$this->app->ActionLog->log("auth", sprintf(__("%s has successfully loged in from %s"), $username, $_SERVER['REMOTE_ADDR']));
 
 			return true;
 		}
 		else {
-			$this->app->ActionLog->log("auth", "Authentifikation von ip ".$_SERVER['REMOTE_ADDR']." für ".$username." fehlgeschlagen");
+			$this->app->ActionLog->log("auth", sprintf(__("Authentification from %s for %s has failed"), $_SERVER['REMOTE_ADDR'], $username));
 			return false;
 		}
 	}

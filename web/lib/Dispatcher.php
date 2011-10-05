@@ -55,7 +55,7 @@ class Dispatcher {
 		}
 		$classname = "Page_".ucfirst(strtolower($page));
 		if(!class_exists($classname)) {
-			throw new Exception("Page \"".$page."\" is not known");
+			throw new Exception(sprintf(__("Page %s is not known"), $page));
 		}
 		$page = new $classname($this->app);
 
@@ -63,7 +63,7 @@ class Dispatcher {
 		$page->setPostdata($_POST);
 		$page->setGetdata($_GET);
 
-		$this->app->Log->debug("Calling LoadPage on ".$classname);
+		$this->app->Log->debug(sprint(__("Calling LoadPage on %s"), $classname));
 		$page->LoadPage();
 		$page->render();
 
@@ -102,7 +102,7 @@ class Dispatcher {
 		$classname = "Action_".ucfirst($class);
 
 		if(!class_exists($classname)) {
-			throw new Exception("Action \"".$class."\" is not known");
+			throw new Exception(sprintf(__("Action %s is not known"), $class));
 		}
 		$action = new $classname($this->app);
 
@@ -114,7 +114,7 @@ class Dispatcher {
 
 		$ret = $action->getCommands();
 
-		$this->app->Log->debug("Performing Action ".$classname.":".$function." with ".serialize($params));
+		$this->app->Log->debug(sprintf(__("Performing Action %s:%s with %s"), $classname, $function, serialize($params)));
 
 		return $ret;
 	}
