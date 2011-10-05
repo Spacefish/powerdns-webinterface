@@ -26,6 +26,10 @@ class Template extends Smarty {
 
 		// $t->config_dir = '/web/www.domain.com/smarty/configs';
 
+		// register gettext blockfunction
+		// require('smarty-gettext.php');
+		// $t->register_block('t', 'smarty-translate');
+
 		return $t;
 	}
 
@@ -37,7 +41,7 @@ class Template extends Smarty {
 		$basedir = dirname(dirname(__FILE__));
 		$this->assign("_TEMPLATE", $tpl);
 
-		$this->app->Log->debug(sprintf(__("Rendering Page %s with basetpl %s basedir is %s"), $tpl, $this->basetpl, $basedir));
+		$this->app->Log->debug(sprintf(_("Rendering Page %s with basetpl %s basedir is %s"), $tpl, $this->basetpl, $basedir));
 
 		parent::display($this->basetpl);
 	}

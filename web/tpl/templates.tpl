@@ -1,7 +1,7 @@
 <script language="javascript" type="text/javascript">
 
 </script>
-<h2>New Record in Domain</h2>
+<h2>{t}New Record in Domain{/t}</h2>
 <script language="javascript" type="text/javascript">
 {literal}
 	var dl = {
@@ -22,7 +22,7 @@
 <div id="newrecord_list">
 	{include file="template_newrecordlist.tpl"}
 </div>
-<input type="button" value="Save" onclick="saverows(dl);" />
+<input type="button" value="{t}Save{/t}" onclick="saverows(dl);" />
 
 <script language="javascript" type="text/javascript">
 {literal}
@@ -70,13 +70,13 @@
 </script>
 
 
-<h2>Default Records for new Domains</h2>
+<h2>{t}Default Records for new Domains{/t}</h2>
 <span style="color: #999; font-size: 12px;">
-	You can use [DOMAIN] (mydomain.tld) and [STAMP] (2010061501) as a placeholder.
+	{t}You can use [DOMAIN] (mydomain.tld) and [STAMP] (2010061501) as a placeholder.{/t}
 </span>
 <br /><br />
-<a href="#" onclick="addNewRow(fields); return false;"><img src="img/icons/add.png" /> New Entry</a>
+<a href="#" onclick="addNewRow(fields); return false;"><img src="img/icons/add.png" /> {t}New Entry{/t}</a>
 <div id="records_list">
 {include file="template_records_newdomainlist.tpl"}
 </div>
-<input type="button" value="Save" onclick="saverows(fields);" />
+<input type="button" value="{t}Save{/t}" onclick="saverows(fields);" />

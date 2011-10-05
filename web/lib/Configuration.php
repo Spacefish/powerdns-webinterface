@@ -32,12 +32,12 @@ class Configuration {
 		if(file_exists($file)) {
 			include $file;
 			if(!isset($cfg[$name]))
-				throw new Exception('Arraykey $cfg["'.$name.'"] is missing!');
+				throw new Exception(sprintf(_('Arraykey $cfg[%s] is missing!'), $name));
 			else
 				return $this->configs[$name] = $cfg[$name];
 		}
 		else
-			throw new Exception(sprintf(__("Configuration File %s.php not found in configs folder!"), $name));
+			throw new Exception(sprintf(_("Configuration File %s.php not found in configs folder!"), $name));
 	}
 }
 

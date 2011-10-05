@@ -45,6 +45,9 @@ class Application {
 		// register autoloader
 		spl_autoload_register(array("Application", "autoload"));
 		set_exception_handler(array("Application", "exceptionHandler"));
+
+		// setup locale
+		$this->Gettext->setup("de_DE.utf8");
 	}
 
 	public function __get($key) {
@@ -72,6 +75,9 @@ class Application {
 				break;
 			case "Configuration":
 				return $this->Configuration = Configuration::get($this);
+				break;
+			case "Gettext":
+				return $this->Gettext = Gettext::get($this);
 				break;
 		}
 	}

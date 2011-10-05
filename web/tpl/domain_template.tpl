@@ -24,4 +24,4 @@
 <div id="newrecord_list">
 {include file="template_newrecord_domainlist.tpl"}
 </div>
-<input type="button" value="Save" onclick="saverows(dl);" />
+<input type="button" value="{t}Save{/t}" onclick="saverows(dl);" />

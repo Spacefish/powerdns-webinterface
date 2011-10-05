@@ -11,9 +11,9 @@
 			PowerDNS Webinterface
 			{if $app->Auth->isAuthed()}
 				<div class="logout_button">
-					Logged in as {$_SESSION.auth.username}&nbsp;&nbsp;&nbsp;&nbsp;
+					{t}Logged in as{/t} {$_SESSION.auth.username}&nbsp;&nbsp;&nbsp;&nbsp;
 					<a href="?p=login&a[0]=logout-logout">
-						<img src="img/icons/cancel.png" /> Logout
+						<img src="img/icons/cancel.png" /> {t}Logout{/t}
 					</a>
 				</div>
 			{/if}
@@ -23,33 +23,33 @@
 				<ul>
 					<li id="m1">
 						<a href="?p=overview">
-							Overview
+							{t}Overview{/t}
 						</a>
 					</li>
 					<li id="m2">
 						<a href="?p=domains">
-							Domains
+							{t}Domains{/t}
 						</a>
 					</li>
 					{if $app->Auth->isAdmin()}
 					<li id="m22">
 						<a href="?p=records">
-							Records
+							{t}Records{/t}
 						</a>
 					</li>
 					<li id="m3">
 						<a href="?p=templates">
-							Templates
+							{t}Templates{/t}
 						</a>
 					</li>
 					<li id="m4">
 						<a href="?p=user">
-							User
+							{t}User{/t}
 						</a>
 					</li>
 					<li id="m5">
 						<a href="?p=supermasters">
-							Supermasters
+							{t}Supermasters{/t}
 						</a>
 					</li>
 					{/if}

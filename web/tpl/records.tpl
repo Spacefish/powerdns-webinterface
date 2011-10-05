@@ -45,10 +45,10 @@ $(document).ready(function() {
 </script>
 {/literal}
 
-<h2>Fulltext search in ALL records</h2>
+<h2>{t}Fulltext search in ALL records{/t}</h2>
 
 <div style="border: 1px #888 solid; padding: 10px; color: #555; font-size: 14px;">
-	Search: <input type="text" id="searchbox" onkeyup="search(this);"><br />
+	{t}Search{/t}: <input type="text" id="searchbox" onkeyup="search(this);"><br />
 </div>
 <br />
 <div id="dlist">

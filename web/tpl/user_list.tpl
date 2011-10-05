@@ -2,10 +2,10 @@
 	<thead>
 		<tr>
 			<th>Id</th>
-			<th>Username</th>
-			<th>Admin</th>
-			<th>Can create new Domains</th>
-			<th>Action</th>
+			<th>{t}Username{/t}</th>
+			<th>{t}Admin{/t}</th>
+			<th>{t}New Domains{/t}</th>
+			<th>{t}Action{/t}</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -22,7 +22,7 @@
 		</tr>
 		{foreachelse}
 		<tr>
-			<td colspan="9">No users found</td>
+			<td colspan="9">{t}No users found{/t}</td>
 		</tr>
 		{/foreach}
 	</tbody>

@@ -68,7 +68,7 @@ function createDomain() {
 }
 
 function deleteDomain(id, name) {
-	if(confirm('Do you really want to delete ' + name + '? This can´t be undone!!')) {
+	if(confirm('{/literal}{t}Do you really want to delete{/t}{literal} ' + name + '? {/literal}{t}This can´t be undone!!{/t}{literal}')) {
 		$.post(
 			'?a[0]=Domains-deleteDomain',
 			{
@@ -112,13 +112,13 @@ $(document).ready(function() {
 			</td>
 		</tr>
 	</table>
-	<a href="#" onclick="createDomain(); return false;"><img src="img/icons/add.png" /> Create new domain</a>
+	<a href="#" onclick="createDomain(); return false;"><img src="img/icons/add.png" /> {t}Create new domain{/t}</a>
 </div>
 <br />
 {/if}
 
 <div style="border: 1px #888 solid; padding: 10px; color: #555; font-size: 14px;">
-	Search: <input type="text" id="searchbox" onkeyup="search(this);"><br />
+	{t}Search{/t}: <input type="text" id="searchbox" onkeyup="search(this);"><br />
 </div>
 <br />
 
@@ -148,8 +148,8 @@ $(document).ready(function() {
 	{/literal}
 </script>
 
-<input type="button" value="Save" onclick="saverows(domains);" />
+<input type="button" value="{t}Save{/t}" onclick="saverows(domains);" />
 <div id="domains_list">
 {include file="domains_list.tpl"}
 </div>
-<input type="button" value="Save" onclick="saverows(domains);" />
+<input type="button" value="{t}Save{/t}" onclick="saverows(domains);" />

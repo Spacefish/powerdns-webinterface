@@ -3,9 +3,9 @@
 		<tr>
 			<th>Id</th>
 			<th>IP</th>
-			<th>Nameserver</th>
-			<th>Account</th>
-			<th>Action</th>
+			<th>{t}Nameserver{/t}</th>
+			<th>{t}Account{/t}</th>
+			<th>{t}Action{/t}</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -21,7 +21,7 @@
 		</tr>
 		{foreachelse}
 		<tr>
-			<td colspan="9">No supermasters found</td>
+			<td colspan="9">{t}No supermasters found{/t}</td>
 		</tr>
 		{/foreach}
 	</tbody>

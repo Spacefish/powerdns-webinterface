@@ -1,0 +1,400 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PowerDNS-Webinterface\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-10-06 01:03+0100\n"
+"PO-Revision-Date: 2011-10-06 01:04+0100\n"
+"Last-Translator: Timo Witte <launchpad@spacefish.biz>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SearchPath-0: ../../..\n"
+
+#: ../../../tpl/smarty.c:1
+#: ../../../tpl/smarty.c:9
+msgid "Logged in as"
+msgstr "Angemeldet als"
+
+#: ../../../tpl/smarty.c:2
+msgid "Logout"
+msgstr "Abmelden"
+
+#: ../../../tpl/smarty.c:3
+#: ../../../tpl/smarty.c:10
+msgid "Overview"
+msgstr "Übersicht"
+
+#: ../../../tpl/smarty.c:4
+#: ../../../tpl/smarty.c:11
+msgid "Domains"
+msgstr ""
+
+#: ../../../tpl/smarty.c:5
+#: ../../../tpl/smarty.c:12
+msgid "Records"
+msgstr "Einträge"
+
+#: ../../../tpl/smarty.c:6
+#: ../../../tpl/smarty.c:13
+msgid "Templates"
+msgstr "Vorlagen"
+
+#: ../../../tpl/smarty.c:7
+#: ../../../tpl/smarty.c:14
+msgid "User"
+msgstr "Benutzer"
+
+#: ../../../tpl/smarty.c:8
+#: ../../../tpl/smarty.c:15
+msgid "Supermasters"
+msgstr ""
+
+#: ../../../tpl/smarty.c:16
+#: ../../../tpl/smarty.c:23
+msgid "Editing"
+msgstr "Bearbeite"
+
+#: ../../../tpl/smarty.c:17
+msgid "Edit userrights"
+msgstr "Benutzerrechte bearbeiten"
+
+#: ../../../tpl/smarty.c:18
+msgid "Edit domaintemplates"
+msgstr "Domaintemplates bearbeiten"
+
+#: ../../../tpl/smarty.c:19
+#: ../../../tpl/smarty.c:21
+#: ../../../tpl/smarty.c:78
+#: ../../../tpl/smarty.c:96
+#: ../../../tpl/smarty.c:100
+msgid "New Entry"
+msgstr "Neue Eintrag"
+
+#: ../../../tpl/smarty.c:20
+#: ../../../tpl/smarty.c:22
+#: ../../../tpl/smarty.c:39
+#: ../../../tpl/smarty.c:40
+#: ../../../tpl/smarty.c:45
+#: ../../../tpl/smarty.c:46
+#: ../../../tpl/smarty.c:47
+#: ../../../tpl/smarty.c:48
+#: ../../../tpl/smarty.c:79
+#: ../../../tpl/smarty.c:93
+#: ../../../tpl/smarty.c:97
+#: ../../../tpl/smarty.c:101
+#: ../../../tpl/smarty.c:111
+msgid "Save"
+msgstr "Speichern"
+
+#: ../../../tpl/smarty.c:24
+#: ../../../tpl/smarty.c:29
+#: ../../../tpl/smarty.c:32
+#: ../../../tpl/smarty.c:83
+#: ../../../tpl/smarty.c:88
+msgid "Type"
+msgstr "Typ"
+
+#: ../../../tpl/smarty.c:25
+#: ../../../tpl/smarty.c:61
+#: ../../../tpl/smarty.c:67
+#: ../../../tpl/smarty.c:84
+#: ../../../tpl/smarty.c:89
+msgid "Content"
+msgstr "Inhalt"
+
+#: ../../../tpl/smarty.c:26
+#: ../../../tpl/smarty.c:62
+#: ../../../tpl/smarty.c:68
+#: ../../../tpl/smarty.c:85
+msgid "Priority"
+msgstr "Priorität"
+
+#: ../../../tpl/smarty.c:27
+#: ../../../tpl/smarty.c:63
+#: ../../../tpl/smarty.c:69
+msgid "Last change"
+msgstr "Letzte Änderung"
+
+#: ../../../tpl/smarty.c:28
+#: ../../../tpl/smarty.c:30
+#: ../../../tpl/smarty.c:33
+#: ../../../tpl/smarty.c:75
+#: ../../../tpl/smarty.c:86
+#: ../../../tpl/smarty.c:91
+#: ../../../tpl/smarty.c:105
+msgid "Action"
+msgstr "Aktion"
+
+#: ../../../tpl/smarty.c:31
+#: ../../../tpl/smarty.c:34
+#: ../../../tpl/smarty.c:64
+msgid "Nothing found"
+msgstr "Nichts gefunden"
+
+#: ../../../tpl/smarty.c:35
+#: ../../../tpl/smarty.c:41
+msgid "Do you really want to delete"
+msgstr "Möchten sie wirklich löschen?"
+
+#: ../../../tpl/smarty.c:36
+#: ../../../tpl/smarty.c:42
+msgid "This can´t be undone!!"
+msgstr "Diese Aktion kann nicht rückgängig gemacht werden!!"
+
+#: ../../../tpl/smarty.c:37
+#: ../../../tpl/smarty.c:43
+msgid "Create new domain"
+msgstr "Neue Domain anlegen"
+
+#: ../../../tpl/smarty.c:38
+#: ../../../tpl/smarty.c:71
+#: ../../../tpl/smarty.c:72
+msgid "Search"
+msgstr "Suchen"
+
+#: ../../../tpl/smarty.c:44
+msgid "Search:"
+msgstr "Suchen:"
+
+#: ../../../tpl/smarty.c:49
+#: ../../../tpl/smarty.c:54
+msgid "Please login below"
+msgstr "Bitte melden sie sich unten an"
+
+#: ../../../tpl/smarty.c:50
+#: ../../../tpl/smarty.c:55
+#: ../../../tpl/smarty.c:102
+#: ../../../tpl/smarty.c:107
+#: ../../../tpl/smarty.c:113
+msgid "Username"
+msgstr "Benutzername"
+
+#: ../../../tpl/smarty.c:51
+#: ../../../tpl/smarty.c:56
+#: ../../../tpl/smarty.c:108
+#: ../../../tpl/smarty.c:114
+msgid "Password"
+msgstr "Passwort"
+
+#: ../../../tpl/smarty.c:52
+msgid "Wrong username or password"
+msgstr "Falscher Benutzername oder Passwort"
+
+#: ../../../tpl/smarty.c:53
+msgid "Login"
+msgstr ""
+
+#: ../../../tpl/smarty.c:57
+msgid "Last login:"
+msgstr "Letzter Login:"
+
+#: ../../../tpl/smarty.c:58
+msgid "Last ip:"
+msgstr "Letzte IP:"
+
+#: ../../../tpl/smarty.c:59
+#: ../../../tpl/smarty.c:65
+msgid "Domaintype"
+msgstr "Domaintyp"
+
+#: ../../../tpl/smarty.c:60
+#: ../../../tpl/smarty.c:66
+msgid "Recordtype"
+msgstr "Eintragstyp"
+
+#: ../../../tpl/smarty.c:70
+msgid "Fulltext search in ALL records"
+msgstr "Volltextsuche in allen Einträgen"
+
+#: ../../../tpl/smarty.c:73
+msgid "Nameserver"
+msgstr ""
+
+#: ../../../tpl/smarty.c:74
+msgid "Account"
+msgstr ""
+
+#: ../../../tpl/smarty.c:76
+msgid "No supermasters found"
+msgstr "Keine Supermaster gefunden"
+
+#: ../../../tpl/smarty.c:77
+msgid "Manage supermasters"
+msgstr "Supermasterserver verwalten"
+
+#: ../../../tpl/smarty.c:80
+msgid "Key"
+msgstr "Schlüssel"
+
+#: ../../../tpl/smarty.c:81
+msgid "Value"
+msgstr "Wert"
+
+#: ../../../tpl/smarty.c:82
+#: ../../../tpl/smarty.c:87
+msgid "Name"
+msgstr ""
+
+#: ../../../tpl/smarty.c:90
+#, fuzzy
+msgid "Prio"
+msgstr "Priorität"
+
+#: ../../../tpl/smarty.c:92
+msgid "New Record in Domain"
+msgstr "Neuer Eintrag in bestehender Domain"
+
+#: ../../../tpl/smarty.c:94
+#: ../../../tpl/smarty.c:98
+msgid "Default Records for new Domains"
+msgstr "Standard Einträge für neue Domains"
+
+#: ../../../tpl/smarty.c:95
+#: ../../../tpl/smarty.c:99
+msgid "You can use [DOMAIN] (mydomain.tld) and [STAMP] (2010061501) as a placeholder."
+msgstr "Sie können [DOMAIN] (z.B. mydomain.tld) und [STAMP] (z.B. 2010061501) als Platzhalter verwenden!"
+
+#: ../../../tpl/smarty.c:103
+#: ../../../tpl/smarty.c:109
+#: ../../../tpl/smarty.c:115
+msgid "Admin"
+msgstr "Administrator"
+
+#: ../../../tpl/smarty.c:104
+msgid "New Domains"
+msgstr "Neue Domains"
+
+#: ../../../tpl/smarty.c:106
+msgid "No users found"
+msgstr "Keine Benutzer gefunden"
+
+#: ../../../tpl/smarty.c:110
+#: ../../../tpl/smarty.c:116
+msgid "Create new user"
+msgstr "Neuen Benutzer anlegen"
+
+#: ../../../tpl/smarty.c:112
+#: ../../../tpl/smarty.c:117
+msgid "The user has to relogin for changes to take effect!"
+msgstr "Der Benutzer muss sich neu einloggen, damit die Änderungen übernommen werden!"
+
+#: ../../../lib/Configuration.php:35
+#, php-format
+msgid "Arraykey $cfg[%s] is missing!"
+msgstr "Arrayschlüssel $cfg[%s] fehlt!"
+
+#: ../../../lib/Configuration.php:40
+#, php-format
+msgid "Configuration File %s.php not found in configs folder!"
+msgstr "Die Konfigurationsdatei %s.php konnte nicht im Ordner configs gefunden werden!"
+
+#: ../../../lib/Dispatcher.php:58
+#, php-format
+msgid "Page %s is not known"
+msgstr "Seite %s ist unbekannt"
+
+#: ../../../lib/Dispatcher.php:66
+#, php-format
+msgid "Calling LoadPage on %s"
+msgstr "Rufe Loadpage für %s auf"
+
+#: ../../../lib/Dispatcher.php:105
+#, php-format
+msgid "Action %s is not known"
+msgstr "Aktion %s ist nicht bekannt"
+
+#: ../../../lib/Dispatcher.php:117
+#, php-format
+msgid "Performing Action %s:%s with %s"
+msgstr "Führe Aktion %s:%s mit %s aus"
+
+#: ../../../lib/Log.php:35
+msgid "Message"
+msgstr "Nachricht"
+
+#: ../../../lib/Auth.php:35
+msgid "Forcing Auth"
+msgstr "Erwzinge Authentifikation"
+
+#: ../../../lib/Auth.php:40
+msgid "you are not authed and should have been redirected!"
+msgstr "Sie sind nicht authentifiziert und sollten umgeleitet werden!"
+
+#: ../../../lib/Auth.php:47
+msgid "Only admins have permission to access this area!"
+msgstr "Nur Administratoren können diesen Bereich betreten!"
+
+#: ../../../lib/Auth.php:84
+#, php-format
+msgid "%s has successfully loged in from %s"
+msgstr "%s hat sich erfolgreich angemeldet von der IP %s"
+
+#: ../../../lib/Auth.php:89
+#, php-format
+msgid "Authentification from %s for %s has failed"
+msgstr "Authentifikation von %s für %s ist fehgeschlagen"
+
+#: ../../../lib/Template.php:44
+#, php-format
+msgid "Rendering Page %s with basetpl %s basedir is %s"
+msgstr "Rendere Seite %s mit basetpl %s das basedir ist %s"
+
+#: ../../../lib/DB.php:49
+#: ../../../lib/DB.php:52
+msgid "Database connection failed: "
+msgstr "Datenbankverbindung fehlgeschlagen:"
+
+#: ../../../lib/Action/Domains.php:19
+msgid "Domain has been deleted!"
+msgstr "Domain wurde gelöscht!"
+
+#: ../../../lib/Action/Domains.php:29
+msgid "Please supply a master for the SLAVE! No change saved!"
+msgstr "Bitte geben sie einen Master für den SLAVE ein! Nichts gespeichert!"
+
+#: ../../../lib/Action/Domains.php:49
+#: ../../../lib/Action/DomainRecords.php:75
+msgid "Saved"
+msgstr "Gespeichert"
+
+#: ../../../lib/Action/Domains.php:52
+msgid "Nothing to change"
+msgstr "Nichts zu ändern"
+
+#: ../../../lib/Action/Domains.php:62
+msgid "You don´t have the permission to create a new domain!"
+msgstr "Sie haben keine Berechtigung eine neue Domain anzulegen!"
+
+#: ../../../lib/Action/Domains.php:68
+msgid "Domain shouldn´t be empty!"
+msgstr "Domain darf nicht leer sein!"
+
+#: ../../../lib/Action/Domains.php:76
+#, php-format
+msgid "Domain %s already exists!"
+msgstr "Domain %s existiert bereits!"
+
+#: ../../../lib/Action/Domains.php:117
+msgid "Domain has been created!"
+msgstr "Domain wurde erstellt!"
+
+#: ../../../lib/Action/DomainRecords.php:36
+#: ../../../lib/Action/DomainRecords.php:61
+#, php-format
+msgid "Double entry for %s (%s)"
+msgstr "Doppelter Eintrag für %s (%s)"
+
+#: ../../../lib/Action/DomainRecords.php:72
+#, php-format
+msgid "%s were not added because name and content was empty."
+msgstr "%s Einträge wurden nicht hinzugefügt da ihr Name und Inhalt leer waren."
+
+#~ msgid "TEST"
+#~ msgstr "TEST_DE"

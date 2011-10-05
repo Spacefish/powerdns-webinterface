@@ -3,12 +3,12 @@
 		<tr>
 			<th>Id</th>
 			<th class="{literal}{sorter: 'natural'}{/literal}">Name</th>
-			<th>Typ</th>
-			<th class="{literal}{sorter: 'natural'}{/literal}">Content</th>
+			<th>{t}Type{/t}</th>
+			<th class="{literal}{sorter: 'natural'}{/literal}">{t}Content{/t}</th>
 			<th>TTL</th>
-			<th>Prio</th>
-			<th>Last change</th>
-			<th>Action</th>
+			<th>{t}Priority{/t}</th>
+			<th>{t}Last change{/t}</th>
+			<th>{t}Action{/t}</th>
 		</tr>
 	</thead>
 	<tbody>

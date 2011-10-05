@@ -1,12 +1,12 @@
 <table class="list" id="records_table">
 	<tr>
-		<th>ID</th>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Content</th>
+		<th>Id</th>
+		<th>{t}Name{/t}</th>
+		<th>{t}Type{/t}</th>
+		<th>{t}Content{/t}</th>
 		<th>TTL</th>
-		<th>Prio</th>
-		<th>Action</th>
+		<th>{t}Priority{/t}</th>
+		<th>{t}Action{/t}</th>
 	</tr>
 	{foreach from=$template_records_newdomain  item="i"}
 	<tr style="background-color: #{cycle values="eee,c8c8c8"};" onclick="editrow(fields, {$i.id});" id="records_tablerow_{$i.id}">

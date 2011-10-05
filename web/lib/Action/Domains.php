@@ -16,7 +16,7 @@ class Action_Domains extends Action {
 			$this->db->query($qry);
 		}
 
-		$this->msg(self::MSG_OK, "Domain wurde gelöscht!");
+		$this->msg(self::MSG_OK, _("Domain has been deleted!"));
 	}
 
 	public function save() {
@@ -26,7 +26,7 @@ class Action_Domains extends Action {
 		if(is_array($this->post['data'])) {
 			foreach($this->post['data'] as $row) {
 				if($row['type'] == "SLAVE" && !$row['master']) {
-					$this->msg(self::MSG_ERROR, "Please supply a master for the SLAVE! No change saved!");
+					$this->msg(self::MSG_ERROR, _("Please supply a master for the SLAVE! No change saved!"));
 					continue;
 				}
 
@@ -41,15 +41,15 @@ class Action_Domains extends Action {
 				if($oldtype != $row['type']) {
 					$this->app->ActionLog->log(
 						"domains",
-						"Domaintyp für ".$this->db->getOne("SELECT name FROM domains WHERE id = ".(int)$row['id']).
-						" von ".$oldtype." auf ".$row['type']." geändert"
+						"Domaintype for ".$this->db->getOne("SELECT name FROM domains WHERE id = ".(int)$row['id']).
+						" changed from ".$oldtype." to ".$row['type']
 					);
 				}
 			}
-			$this->msg(self::MSG_OK, "Gespeichert.");
+			$this->msg(self::MSG_OK, _("Saved"));
 		}
 		else {
-			$this->msg(self::MSG_OK, "If you don´t want to change anything, thats fine with me ;)");
+			$this->msg(self::MSG_OK, _("Nothing to change"));
 		}
 		$this->cmd("updateList(lastsearch, lastsort.col, lastsort.dir);");
 		// $this->cmd("reloadRecords(domains);");
@@ -59,13 +59,13 @@ class Action_Domains extends Action {
 		$this->app->Auth->forceAuth();
 
 		if(!$this->app->Session->data['auth']['canCreateDomain'])
-			throw new Exception("You don´t have the permission to create a new domain!");
+			throw new Exception(_("You don´t have the permission to create a new domain!"));
 
 		$this->db = $this->app->DB;
 		$domain = $this->post['domain_name'];
 		
 		if(strlen(trim($domain)) == 0) {
-			$this->msg(self::MSG_ERROR, "Domain shouldn´t be empty!");
+			$this->msg(self::MSG_ERROR, _("Domain shouldn´t be empty!"));
 			return;
 		}
 
@@ -73,7 +73,7 @@ class Action_Domains extends Action {
 		$template = $this->db->getAll($sql);
 
 		if($this->db->getOne("SELECT COUNT(*) FROM domains WHERE `name` = '".addslashes($domain)."'")) {
-			$this->msg(self::MSG_ERROR, "Domain ".$domain." existiert bereits!");
+			$this->msg(self::MSG_ERROR, sprintf(_("Domain %s already exists!"), $domain));
 			return;
 		}
 
@@ -114,7 +114,7 @@ class Action_Domains extends Action {
 			$this->db->query($sql);
 		}
 
-		$this->msg(self::MSG_OK, "Domain has been created!");
+		$this->msg(self::MSG_OK, _("Domain has been created!"));
 	}
 }
 

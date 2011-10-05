@@ -64,7 +64,7 @@
 	<table>
 		<tr>
 			<td>
-				<span style="color: #555; font-size: 14px;">Username</span>
+				<span style="color: #555; font-size: 14px;">{t}Username{/t}</span>
 			</td>
 			<td>
 				<input type="text" id="username" />
@@ -72,7 +72,7 @@
 		</tr>
 		<tr>
 			<td>
-				<span style="color: #555; font-size: 14px;">Password</span>
+				<span style="color: #555; font-size: 14px;">{t}Password{/t}</span>
 			</td>
 			<td>
 				<input type="text" id="password" />
@@ -80,19 +80,19 @@
 		</tr>
 		<tr>
 			<td>
-				<span style="color: #555; font-size: 14px;">Admin</span>
+				<span style="color: #555; font-size: 14px;">{t}Admin{/t}</span>
 			</td>
 			<td>
 				<input type="checkbox" id="isadmin" />
 			</td>
 		</tr>
 	</table>
-	<a href="#" onclick="createUser(); return false;"><img src="img/icons/add.png" /> Create new user</a>
+	<a href="#" onclick="createUser(); return false;"><img src="img/icons/add.png" /> {t}Create new user{/t}</a>
 </div>
 <br />
 <div id="users_list">
 	{include file="user_list.tpl"}
 </div>
-<input type="button" value="Save" onclick="saverows(fields);" />
+<input type="button" value="{t}Save{/t}" onclick="saverows(fields);" />
 <br />
-<span style="color: #999; font-size: 12px;">The user has to relogin for changes to take effect!</span>
+<span style="color: #999; font-size: 12px;">{t}The user has to relogin for changes to take effect!{/t}</span>

@@ -4,12 +4,12 @@
 			<th>Id</th>
 			<th>Domainname</th>
 			<th class="{literal}{sorter: 'natural'}{/literal}">Recordname</th>
-			<th>Domaintyp</th>
-			<th>Recordtyp</th>
-			<th>Inhalt</th>
+			<th>{t}Domaintype{/t}</th>
+			<th>{t}Recordtype{/t}</th>
+			<th>{t}Content{/t}</th>
 			<th>TTL</th>
-			<th>Prio</th>
-			<th>Last change</th>
+			<th>{t}Priority{/t}</th>
+			<th>{t}Last change{/t}</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -27,7 +27,7 @@
 		</tr>
 		{foreachelse}
 		<tr>
-			<td colspan="9">Nothing found...</td>
+			<td colspan="9">{t}Nothing found{/t}...</td>
 		</tr>
 		{/foreach}
 	</tbody>

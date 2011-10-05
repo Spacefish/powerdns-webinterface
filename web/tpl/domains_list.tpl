@@ -4,8 +4,8 @@
 			<th>Id</th>
 			<th>Domain</th>
 			<th>Master</th>
-			<th>Type</th>
-			<th>Action</th>
+			<th>{t}Type{/t}</th>
+			<th>{t}Action{/t}</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -24,7 +24,7 @@
 		</tr>
 		{foreachelse}
 		<tr>
-			<td colspan="3">Nothing found</td>
+			<td colspan="3">{t}Nothing found{/t}</td>
 		</tr>
 		{/foreach}
 	</tbody>

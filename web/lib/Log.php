@@ -32,7 +32,7 @@ class Log {
 
 	public function echoLog() {
 		echo '<table border="1">';
-		echo '<tr><td><strong>'.__("Type").'</strong></td><td><strong>'.__("Message").'</strong></td></tr>';
+		echo '<tr><td><strong>'._("Type").'</strong></td><td><strong>'._("Message").'</strong></td></tr>';
 		foreach($this->log as $entry) {
 			echo '<tr>';
 			echo '<td>'.$entry['type'].'</td>';

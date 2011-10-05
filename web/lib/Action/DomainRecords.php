@@ -33,7 +33,7 @@ class Action_DomainRecords extends Action {
 				}
 				$updatesoa = true;
 				if($this->checkDouble($this->post['extra']['domain_id'], $row['name'], $row['type'])) {
-					$this->msg(self::MSG_WARN, "Double entry for ".$row['name']." (".$row['type'].")");
+					$this->msg(self::MSG_WARN, sprintf(_("Double entry for %s (%s)"), $row['name'], $row['type']));
 				}
 			}
 		}
@@ -58,7 +58,7 @@ class Action_DomainRecords extends Action {
 				$updatesoa = true;
 
 				if($this->checkDouble($this->post['extra']['domain_id'], $row['name'], $row['type'])) {
-					$this->msg(self::MSG_WARN, "Found double entry for ".$row['name']." (".$row['type'].")");
+					$this->msg(self::MSG_WARN, sprintf(_("Double entry for %s (%s)"), $row['name'], $row['type']));
 				}
 			}
 		}
@@ -69,10 +69,10 @@ class Action_DomainRecords extends Action {
 		}
 
 		if($emptyentrys) {
-			$this->msg(self::MSG_INFO, ($emptyentrys)." were not added because name and content was empty.");
+			$this->msg(self::MSG_INFO, sprintf(_("%s were not added because name and content was empty."), $emptyentrys));
 		}
 
-		$this->msg(self::MSG_OK, "Saved...");
+		$this->msg(self::MSG_OK, _("Saved"));
 		$this->cmd("reloadRecords(fields);");
 	}
 

@@ -1,7 +1,7 @@
 <table class="list" id="newrecord_table">
 	<tr>
-		<th>Key</th>
-		<th>Value</th>
+		<th>{t}Key{/t}</th>
+		<th>{t}Value{/t}</th>
 	</tr>
 	{foreach from=$template  item="i"}
 	<tr style="background-color: #{cycle values="eee,c8c8c8"};" onclick="editrow(dl, '{$i.key}');" id="newrecord_tablerow_{$i.key}">

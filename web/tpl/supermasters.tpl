@@ -30,12 +30,12 @@
     });
 </script>
 {/literal}
-<h2>Manage supermasters</h2>
+<h2>{t}Manage supermasters{/t}</h2>
 <br />
 
 <div id="supermasters_list">
 	{include file="supermasters_list.tpl"}
 </div>
-<a href="#" onclick="addNewRow(fields); return false;"><img src="img/icons/add.png" /> New Entry</a>
+<a href="#" onclick="addNewRow(fields); return false;"><img src="img/icons/add.png" /> {t}New Entry{/t}</a>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="button" value="Save" onclick="saverows(fields);" />
+<input type="button" value="{t}Save{/t}" onclick="saverows(fields);" />
