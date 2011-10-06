@@ -47,7 +47,8 @@ class Application {
 		set_exception_handler(array("Application", "exceptionHandler"));
 
 		// setup locale
-		$this->Gettext->setup("de_DE.utf8");
+		$baseConfig = $this->Configuration->load("base");
+		$this->Gettext->setup($baseConfig['locale']);
 	}
 
 	public function __get($key) {

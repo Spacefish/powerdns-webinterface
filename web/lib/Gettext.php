@@ -21,7 +21,41 @@ class Gettext {
 		$this->app = $app;
 	}
 
+	private function toLocale($str) {
+		if(strpos($str, "de") !== false)
+			return "de_DE.utf8";
+		return "en_US.utf8";
+	}
+
+	private function findLocale($locale) {
+		// if the locale is set it´s ok
+		if($locale)
+			return $locale;
+		else {
+			$httpLang = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+			// if not set switch to default english
+			if(!$httpLang)
+				return "en_US.utf8";
+
+			$tmp = explode(",", $httpLang);
+			foreach($tmp as $lang) {
+				//  element is not q rated, so we just use that one
+				if(strpos($lang, ";") === false) {
+					return $this->toLocale($lang);
+				}
+
+				// first q rated element is taken! (highprio should be first!)
+				$lang = explode(";", $lang);
+				return $this->toLocale($lang[0]);
+			}
+
+			// if anything else we don´t know that language so we switch to english
+			return "en_US.utf8";
+		}
+	}
+
 	public function setup($locale) {
+		$locale = $this->findLocale($locale);
 		setlocale(LC_MESSAGES, $locale);
 		bindtextdomain("messages", dirname(dirname(__FILE__))."/locale");
 		textdomain("messages");
