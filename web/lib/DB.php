@@ -44,12 +44,12 @@ class DB {
     private function connect() {
     	if($this->connection)
     		return;
-    	$this->connection = @mysql_connect($this->cfg['host'], $this->cfg['username'], $this->cfg['password']);
+    	$this->connection = mysql_connect($this->cfg['host'], $this->cfg['username'], $this->cfg['password']);
     	if($error = mysql_error())
-    		die(_("Database connection failed: ").$error);
+    		throw new Exception(_("Database connection failed: ").$error);
     	mysql_select_db($this->cfg['database'], $this->connection);
     	if($error = mysql_error($this->connection))
-    		die(_("Database connection failed: ").$error);
+    		throw new Exception(_("Database connection failed: ").$error);
 
 	// we use unicode so get into utf8 mode ;)
     	mysql_query("SET NAMES 'utf8'", $this->connection);

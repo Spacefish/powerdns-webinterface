@@ -11,5 +11,6 @@ Supported features are:
 - ipv6 support for reversezones
 - search features for records and domains
 - some minor zone checking
+- multilanguage support via gettext
 
 if you encounter bugs or have a question please don´t hesitate to mail me: timo.witte@googlemail.com

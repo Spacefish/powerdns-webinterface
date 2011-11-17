@@ -22,15 +22,23 @@ class Application {
 	}
 
 	public static function exceptionHandler($e) {
-		if($_SERVER['HTTP_X_REQUESTED_WITH'] == "XMLHttpRequest") {
+		if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] == "XMLHttpRequest") {
 			echo $e->getMessage();
 		}
 		else {
-			$app = new Application();
-			$page = new Page_Exception($app);
-			$page->setParams(array("exception" => $e));
-			$page->LoadPage();
-			$page->render();
+			try {
+				$app = new Application();
+				$page = new Page_Exception($app);
+				$page->setParams(array("exception" => $e));
+				$page->LoadPage();
+				$page->render();
+			}
+			catch(Exception $e) {
+				error_log($e->getMessage());
+				error_log($e->getTraceAsString());
+				echo "<h2>".nl2br($e->getMessage())."</h2>";
+				echo nl2br($e->getTraceAsString());
+			}
 		}
 	}
 
@@ -40,11 +48,14 @@ class Application {
 		$includePath[] = ".";
 		$includePath[] = dirname(__FILE__);
 		$includePath[] = dirname(dirname(__FILE__));
-		ini_set("include_path", implode(":", $includePath));		
+		ini_set("include_path", implode(":", $includePath));
 
 		// register autoloader
 		spl_autoload_register(array("Application", "autoload"));
 		set_exception_handler(array("Application", "exceptionHandler"));
+
+		error_reporting(E_ALL);
+		ini_set("display_errors", true);
 
 		// setup locale
 		$baseConfig = $this->Configuration->load("base");

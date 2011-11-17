@@ -1,3 +1,12 @@
+1.4.1
+ - improved error handling / display / logging
+
+1.4
+ - added gettext support
+ - added german language
+ - added automatic detection of browserlanguage
+ - renamed some parts and fixed english typos
+
 1.3.1 (2011-10-01)
  - hotfix release
  - changed update sql commands, because they fail if the id
