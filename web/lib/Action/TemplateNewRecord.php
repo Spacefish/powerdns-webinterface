@@ -15,7 +15,7 @@ class Action_TemplateNewRecord extends Action {
 			$this->db->query($sql);
 		}
 
-		$this->msg(self::MSG_OK, "Gespeichert!");
+		$this->msg(self::MSG_OK, _("Saved"));
 		$this->cmd("reloadRecords(dl);");
 	}
 }

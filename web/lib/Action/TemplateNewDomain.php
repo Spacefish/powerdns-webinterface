@@ -52,7 +52,7 @@ class Action_TemplateNewDomain extends Action {
 			$this->msg(self::MSG_INFO, $emptyentrys." were not added because their name or content was empty.");
 		}
 
-		$this->msg(self::MSG_OK, "Saved....");
+		$this->msg(self::MSG_OK, _("Saved"));
 
 		$this->cmd("reloadRecords(fields);");
 	}

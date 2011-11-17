@@ -54,7 +54,7 @@ class Session {
 	}
 
 	public static function getCookie() {
-		if($_COOKIE['sid']) {
+		if(isset($_COOKIE['sid'])) {
 			$sid = $_COOKIE['sid'];
 		}
 		else {
