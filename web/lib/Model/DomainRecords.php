@@ -10,6 +10,7 @@ class Model_DomainRecords extends Model {
 		"CNAME" => 50,
 		"AAAAA" => 40,
 		"A"	=> 30,
+		"PTR"	=> 20
 	);
 	public function getRecordlistByDomainId($domain_id) {
 		$data = $this->db->getAll("SELECT * FROM records WHERE domain_id = ".(int)$domain_id." ORDER BY name ASC");
@@ -43,8 +44,8 @@ class Model_DomainRecords extends Model {
 	 * @return string|string|string|string|string|string
 	 */
 	private function valcmp($a, $b) {
-		$ao = $this->typeOrder[$a['type']];
-		$bo = $this->typeOrder[$b['type']];
+		$ao = isset($this->typeOrder[$a['type']]) ? $this->typeOrder[$a['type']] : false;
+		$bo = isset($this->typeOrder[$b['type']]) ? $this->typeOrder[$b['type']] : false;
 		if($ao < $bo)
 			return true;
 		elseif($ao == $bo) {
