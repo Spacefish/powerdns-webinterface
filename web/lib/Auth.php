@@ -78,7 +78,7 @@ class Auth {
 				"lastIp"	=> $row['lastIp'],
 			);
 
-			$sql = "UPDATE user SET lastLogin = NOW(), lastIp = '".$_SERVER['REMOTE_ADDR']."' WHERE id = ".$row['id'];
+			$sql = "UPDATE user SET lastLogin = UTC_TIMESTAMP(), lastIp = '".$_SERVER['REMOTE_ADDR']."' WHERE id = ".$row['id'];
 			$this->db->query($sql);
 
 			$this->app->ActionLog->log("auth", sprintf(_("%s has successfully loged in from %s"), $username, $_SERVER['REMOTE_ADDR']));

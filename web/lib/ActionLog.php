@@ -32,7 +32,7 @@ class ActionLog {
 
 	public function log($facility, $msg) {
 		$sql = "INSERT INTO actionlog SET ";
-		$sql.= "`date` = NOW(), ";
+		$sql.= "`date` = UTC_TIMESTAMP(), ";
 		$sql.= "username = '".addslashes($this->app->Session->data['auth']['username'])."', ";
 		$sql.= "facility = '".addslashes($facility)."', ";
 		$sql.= "msg = '".addslashes($msg)."'";

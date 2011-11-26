@@ -68,7 +68,7 @@ class Session {
 
 	public function __destruct() {
 		$data = serialize($this->data);
-		$this->db->query("REPLACE INTO session SET sid = '".addslashes($this->sid)."', data = '".addslashes($data)."', lastchange = NOW()");
+		$this->db->query("REPLACE INTO session SET sid = '".addslashes($this->sid)."', data = '".addslashes($data)."', lastchange = UTC_TIMESTAMP()");
 	}
 }
 
