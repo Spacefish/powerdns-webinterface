@@ -290,28 +290,30 @@ class Action_DomainRecords extends Action {
 		$db = $this->app->DB;
 
 		if(!$this->checkChars($row['name'])) {
-			$this->msg(self::MSG_WARN, $row['name']." (".$row['type'].") contains invalid characters");
+			$this->msg(self::MSG_WARN, sprintf(_("%s (%s) contains invalid characters"), $row['name'], $row['type']));
 		}
 		switch($row['type']) {
 			case "SOA":
 				// is already present?
 				$soacount = $db->getOne("SELECT COUNT(*) FROM records WHERE domain_id = ".(int)$row['domain_id']." AND type = 'SOA'");
 				if($soacount == 1 && $row['action'] == "new") {
-					$this->msg(self::MSG_ERROR, "You can´t create a second SOA entry!");
+					$this->msg(self::MSG_ERROR, _("You can´t create a second SOA entry!"));
 					return false;
 				}
 				break;
 			case "MX":
 			case "CNAME":
 			case "NS":
-				if($this->isIpv4($row['content']))
-					$this->msg(self::MSG_WARN, "The ".$row['type']." for ".$row['name']." should contain a hostname not a ip!");
+				if($this->isIpv4($row['content']) || $this->isIpv6($row['content']))
+					$this->msg(self::MSG_WARN, sprintf(_("The %s for %s should contain a hostname not a ip!"), $row['type'], $row['name']));
 				break;
 			case "A":
 				if(!$this->isIpv4($row['content'])) {
-					$this->msg(self::MSG_ERROR, $row['name']." (A Record) doesn´t contain a ipv4 so no change was made!");
+					$this->msg(self::MSG_ERROR, sprintf(_("%s (A Record) doesn´t contain a ipv4 so no change was made!"), $row['name']));
 					return false;
 				}
+				// this checks if there are already A records with the some content for this domain (this is helpfull if you have many hosts under one domain and use DNS for DHCP)
+$this->msg(self::MSG_OK, print_r($row, true));
 				if($same_content_count = $db->getOne("SELECT COUNT(*) FROM records WHERE content = '".addslashes($row['content'])."'")) {
 					if($row['action'] == "edit") {
 						// if changed the result is correct
@@ -322,7 +324,7 @@ class Action_DomainRecords extends Action {
 						else {
 							$same_content_count--;
 							if($same_content_count > 0) {
-								$this->msg(self::MSG_WARN, "There are already ".$same_content_count." records refering the IP ".$row['content']);
+								$this->msg(self::MSG_WARN, sprintf(_("There are already %s records refering the IP %s"), $row['name'], $row['content']));
 							}
 						}
 					}
@@ -332,6 +334,10 @@ class Action_DomainRecords extends Action {
 				}
 				break;
 			case "AAAA":
+				if(!$this->isIpv6($row['content'])) {
+					$this->msg(self::MSG_ERROR, sprintf(_("%s (AAAA Record) doesn´t contain a ipv6 so no change was made!"), $row['name']));
+					return false;
+				}
 				break;
 		}
 
