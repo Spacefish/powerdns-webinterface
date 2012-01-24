@@ -8,14 +8,14 @@ class Model_DomainRecords extends Model {
 		"TXT" => 70,
 		"SPF" => 60,
 		"CNAME" => 50,
-		"AAAAA" => 40,
+		"AAAA" => 40,
 		"A"	=> 30,
 		"PTR"	=> 20
 	);
 	public function getRecordlistByDomainId($domain_id) {
 		$data = $this->db->getAll("SELECT * FROM records WHERE domain_id = ".(int)$domain_id." ORDER BY name ASC");
 		usort($data, array($this, "valcmp"));
-		
+
 		return $this->postProcess($data, $this->getDomainName($domain_id));
 	}
 
