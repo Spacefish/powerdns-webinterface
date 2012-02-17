@@ -62,6 +62,7 @@
 					<div id="msg"></div>
 					{include file=$_TEMPLATE}
 					<div class="copyleft">
+						{if $app->Auth->isAuthed()}PowerDNS Webinterface {$app->Configuration->getValue('base/version')}<br />{/if}
 						Copyright 2011 Timo Witte Licensed under the Apache License (2.0)
 					</div>
 				</div>

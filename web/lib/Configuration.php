@@ -23,6 +23,18 @@ class Configuration {
 		$this->app = $app;
 	}
 
+	public function getValue($path) {
+		$path = explode("/",$path, 2);
+		$config = $this->load($path[0]);
+		$path = explode("/", $path[1]);
+		foreach($path as $part) {
+			if(empty($config[$part]))
+				return false;
+			$config = $config[$part];
+		}
+		return $config;
+	}
+
 	public function load($name) {
 		// if in cache just return the data
 		if(isset($this->configs[$name]))
