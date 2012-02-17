@@ -31,8 +31,6 @@
 </script>
 {/literal}
 <h2>{t}Manage supermasters{/t}</h2>
-<br />
-
 <div id="supermasters_list">
 	{include file="supermasters_list.tpl"}
 </div>
