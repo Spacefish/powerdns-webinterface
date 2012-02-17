@@ -8,7 +8,7 @@ $cfg['db'] = array(
 		"host" => "localhost",
 		"port" => 3306,
 		"username" => "root",
-		"password" => "limbis",
+		"password" => "",
 		"database" => "webdns",
 	)
 );
