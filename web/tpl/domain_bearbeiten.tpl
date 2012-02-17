@@ -59,13 +59,11 @@
 	{if $app->Auth->isAdmin()}<a href="?p=domainuserrights&pp[domain_id]={$domain_id}" title="{t}Edit userrights{/t}"><img src="img/icons/user.png" /></a>{/if}
 	<a href="?p=domaintemplate&pp[domain_id]={$domain_id}"><img src="img/icons/database_go.png" title="{t}Edit domaintemplates{/t}" /></a>
 </h2>
-<a href="#" onclick="addNewRow(fields); return false;"><img src="img/icons/add.png" /> {t}New Entry{/t}</a>
-&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="button" value="{t}Save{/t}" onclick="saverows(fields);" />
+<a href="#" onclick="addNewRow(fields); return false;" class="newEntryButton"><img src="img/icons/add.png" /> {t}New Entry{/t}</a>
+<input type="button" value="{t}Save{/t}" onclick="saverows(fields);" class="savebutton" />
 <div id="records_list">
 {include file="domain_recordlist.tpl"}
 </div>
 
-<a href="#" onclick="addNewRow(fields); return false;"><img src="img/icons/add.png" /> {t}New Entry{/t}</a>
-&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="button" value="{t}Save{/t}" onclick="saverows(fields);" />
+<a href="#" onclick="addNewRow(fields); return false;" class="newEntryButton"><img src="img/icons/add.png" /> {t}New Entry{/t}</a>
+<input type="button" value="{t}Save{/t}" onclick="saverows(fields);" class="savebutton" />

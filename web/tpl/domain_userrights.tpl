@@ -26,8 +26,8 @@
 
 <h2>Edit rights for <a href="?p=domainedit&pp[domain_id]={$domain_id}">{$domain_name}</a></h2>
 
-<input type="button" value="Save" onclick="saverows(fields);" />
+<input type="button" value="Save" onclick="saverows(fields);" class="savebutton" />
 <div id="ur_list">
 {include file="domain_userrights_list.tpl"}
 </div>
-<input type="button" value="Save" onclick="saverows(fields);" />
+<input type="button" value="Save" onclick="saverows(fields);" class="savebutton" />

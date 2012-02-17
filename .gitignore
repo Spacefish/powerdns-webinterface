@@ -1,5 +1,6 @@
 # temp files of text editors
 *~
+web/tmp/templates_c
 
 # eclipse dirs
 web/.buildpath

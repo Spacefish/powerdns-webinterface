@@ -93,6 +93,6 @@
 <div id="users_list">
 	{include file="user_list.tpl"}
 </div>
-<input type="button" value="{t}Save{/t}" onclick="saverows(fields);" />
+<input type="button" value="{t}Save{/t}" onclick="saverows(fields);" class="savebutton" />
 <br />
 <span style="color: #999; font-size: 12px;">{t}The user has to relogin for changes to take effect!{/t}</span>

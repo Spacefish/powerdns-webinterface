@@ -36,6 +36,5 @@
 <div id="supermasters_list">
 	{include file="supermasters_list.tpl"}
 </div>
-<a href="#" onclick="addNewRow(fields); return false;"><img src="img/icons/add.png" /> {t}New Entry{/t}</a>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="button" value="{t}Save{/t}" onclick="saverows(fields);" />
+<a href="#" onclick="addNewRow(fields); return false;" class="newEntryButton"><img src="img/icons/add.png" /> {t}New Entry{/t}</a>
+<input type="button" value="{t}Save{/t}" onclick="saverows(fields);" class="savebutton" />

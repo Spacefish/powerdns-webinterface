@@ -148,8 +148,8 @@ $(document).ready(function() {
 	{/literal}
 </script>
 
-<input type="button" value="{t}Save{/t}" onclick="saverows(domains);" />
+<input type="button" value="{t}Save{/t}" onclick="saverows(domains);" class="savebutton" />
 <div id="domains_list">
 {include file="domains_list.tpl"}
 </div>
-<input type="button" value="{t}Save{/t}" onclick="saverows(domains);" />
+<input type="button" value="{t}Save{/t}" onclick="saverows(domains);" class="savebutton" />
