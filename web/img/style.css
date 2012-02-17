@@ -40,6 +40,10 @@ h2 {
 	margin-left:11em;
 }
 
+.logininput {
+	padding: 0.2em;
+}
+
 .savebutton {
 	padding: 0.3em;
 	margin-bottom: 0.5em;
