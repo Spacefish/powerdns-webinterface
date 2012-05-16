@@ -32,7 +32,7 @@ class Gettext {
 		if($locale)
 			return $locale;
 		else {
-			$httpLang = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+			$httpLang = isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? $_SERVER['HTTP_ACCEPT_LANGUAGE'] : null;
 			// if not set switch to default english
 			if(!$httpLang)
 				return "en_US.utf8";
