@@ -42,7 +42,7 @@ class Action_DomainRecords extends Action {
 		$emptyentrys = 0;
 		if(is_array($this->post['new'])) {
 			foreach($this->post['new'] as $row) {
-				if(!$row['name'] || !$row['content']) {
+				if(!$row['content']) {
 					$emptyentrys++;
 					continue;
 				}
@@ -69,7 +69,7 @@ class Action_DomainRecords extends Action {
 		}
 
 		if($emptyentrys) {
-			$this->msg(self::MSG_INFO, sprintf(_("%s were not added because name and content was empty."), $emptyentrys));
+			$this->msg(self::MSG_INFO, sprintf(_("%s were not added because content was empty."), $emptyentrys));
 		}
 
 		$this->msg(self::MSG_OK, _("Saved"));
@@ -313,7 +313,7 @@ class Action_DomainRecords extends Action {
 					return false;
 				}
 				// this checks if there are already A records with the some content for this domain (this is helpfull if you have many hosts under one domain and use DNS for DHCP)
-$this->msg(self::MSG_OK, print_r($row, true));
+				$this->msg(self::MSG_OK, print_r($row, true));
 				if($same_content_count = $db->getOne("SELECT COUNT(*) FROM records WHERE content = '".addslashes($row['content'])."'")) {
 					if($row['action'] == "edit") {
 						// if changed the result is correct
