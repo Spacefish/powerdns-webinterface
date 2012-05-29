@@ -96,16 +96,24 @@ class Action_Users extends Action {
 		$this->app->Auth->forceAdmin();
 
 		$this->db = $this->app->DB;
+		$this->cfg = $this->app->Configuration->load("base");
+
+		$username = $this->db->getOne("SELECT username FROM user WHERE id = ".(int)$this->post['userid']);
+
+		if($this->cfg['demomode'] && $username == "admin") {
+			$this->msg(self::MSG_WARN, "Can´t change password for user admin in demomode!");
+			return;
+		}
 
 		if(strlen($this->post['password']) < 3) {
 			$this->msg(self::MSG_ERROR, "Password should contain a minimum of 3 charcters!");
 			return;
 		}
 
-		$this->app->ActionLog->log("users", "Password for ".$this->db->getOne("SELECT username FROM user WHERE id = ".(int)$this->post['userid'])." changed.");
+		$this->app->ActionLog->log("users", "Password for ".$username." changed.");
 
 		$this->db->query("UPDATE user SET password = '".md5($this->post['password'])."' WHERE id = ".(int)$this->post['userid']);
-		$this->msg(self::MSG_OK, "Password for ".$this->post['username']." changed!");
+		$this->msg(self::MSG_OK, "Password for ".$username." changed!");
 	}
 }
 
