@@ -63,5 +63,3 @@ abstract class Action {
 		return array("cmds" => $ret);
 	}
 }
-
-?>

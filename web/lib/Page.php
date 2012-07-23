@@ -45,10 +45,8 @@ abstract class Page {
 
 	public function render() {
 		$this->doAssigns();
-		$this->t->display($this->tpl);
+		$this->t->callDisplay($this->tpl);
 	}
 
 	abstract function loadPage();
 }
-
-?>

@@ -18,5 +18,3 @@ class Model {
 		$this->db = $this->app->DB;
 	}
 }
-
-?>

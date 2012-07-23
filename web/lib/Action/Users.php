@@ -116,5 +116,3 @@ class Action_Users extends Action {
 		$this->msg(self::MSG_OK, "Password for ".$username." changed!");
 	}
 }
-
-?>

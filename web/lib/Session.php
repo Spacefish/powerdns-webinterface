@@ -71,5 +71,3 @@ class Session {
 		$this->db->query("REPLACE INTO session SET sid = '".addslashes($this->sid)."', data = '".addslashes($data)."', lastchange = UTC_TIMESTAMP()");
 	}
 }
-
-?>

@@ -1,3 +1,12 @@
+1.5
+ - new bundled smarty version (3.1.11)
+ - you can now set the default_timezone via config/base.php
+ - last login on the overview page now honors the timezone
+   (fixes issue 20)
+ - fixed some php 5.4 strict warnings 
+ - removed all closing php tags to avoid "header send before
+   output started" errors (fixes issue 32)
+
 1.4.3
  - fixed issue 26 (unable to add new NS entries)
 

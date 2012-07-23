@@ -28,5 +28,3 @@ class Model_Domains extends Model {
 		return $this->db->getOne("SELECT name FROM domains WHERE id = ".(int)$id);
 	}
 }
-
-?>

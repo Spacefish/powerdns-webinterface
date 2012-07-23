@@ -62,5 +62,3 @@ class Gettext {
 		bind_textdomain_codeset("messages", "UTF-8");
 	}
 }
-
-?>

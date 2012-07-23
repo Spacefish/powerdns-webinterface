@@ -61,5 +61,3 @@ class Page_Domainedit extends Page {
 		return $template;
 	}
 }
-
-?>

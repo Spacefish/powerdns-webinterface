@@ -40,5 +40,3 @@ class Page_Domainuserrights extends Page {
 		));
 	}
 }
-
-?>

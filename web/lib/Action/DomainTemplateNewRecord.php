@@ -25,4 +25,3 @@ class Action_DomainTemplateNewRecord extends Action {
 		$this->cmd("reloadRecords(dl);");
 	}
 }
-?>

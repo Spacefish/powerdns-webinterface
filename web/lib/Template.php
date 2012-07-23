@@ -11,6 +11,7 @@ include_once 'smarty/Smarty.class.php';
  */
 class Template extends Smarty {
 	private $app;
+	public $basetpl;
 
 	public static function get($app) {
 		$t = new Template();
@@ -37,7 +38,7 @@ class Template extends Smarty {
 		$this->app = $app;
 	}
 
-	public function display($tpl) {
+	public function callDisplay($tpl) {
 		$basedir = dirname(dirname(__FILE__));
 		$this->assign("_TEMPLATE", $tpl);
 
@@ -46,5 +47,3 @@ class Template extends Smarty {
 		parent::display($this->basetpl);
 	}
 }
-
-?>

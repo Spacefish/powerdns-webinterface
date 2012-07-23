@@ -138,5 +138,3 @@ class Model_DomainRecords extends Model {
 		$this->db->query($sql);
 	}
 }
-
-?>

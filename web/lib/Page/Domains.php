@@ -52,5 +52,3 @@ class Page_Domains extends Page {
 		return $ids;
 	}
 }
-
-?>

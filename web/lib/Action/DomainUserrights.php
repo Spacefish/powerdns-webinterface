@@ -37,5 +37,3 @@ class Action_DomainUserrights extends Action {
 		$this->cmd("reloadRecords(fields);");
 	}
 }
-
-?>

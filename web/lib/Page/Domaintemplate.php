@@ -29,5 +29,3 @@ class Page_Domaintemplate extends Page {
 		));
 	}
 }
-
-?>

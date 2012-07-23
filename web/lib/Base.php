@@ -60,6 +60,9 @@ class Application {
 		// setup locale
 		$baseConfig = $this->Configuration->load("base");
 		$this->Gettext->setup($baseConfig['locale']);
+		
+		// set default timezone
+		date_default_timezone_set($baseConfig['default_timezone']);
 	}
 
 	public function __get($key) {
@@ -106,5 +109,3 @@ class Application {
 			include_once $filename;
 	}
 }
-
-?>

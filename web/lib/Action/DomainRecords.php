@@ -384,5 +384,3 @@ class Action_DomainRecords extends Action {
 			return true;
 	}
 }
-
-?>

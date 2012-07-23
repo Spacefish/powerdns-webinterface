@@ -33,5 +33,3 @@ class Page_Templates extends Page {
 		));
 	}
 }
-
-?>

@@ -52,5 +52,3 @@ class Configuration {
 			throw new Exception(sprintf(_("Configuration File %s.php not found in configs folder!"), $name));
 	}
 }
-
-?>

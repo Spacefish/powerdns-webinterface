@@ -18,5 +18,3 @@ class Page_Records extends Page {
 		}
 	}
 }
-
-?>

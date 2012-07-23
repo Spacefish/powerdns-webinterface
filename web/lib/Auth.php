@@ -95,5 +95,3 @@ class Auth {
 		$this->app->Session->destruct();
 	}
 }
-
-?>

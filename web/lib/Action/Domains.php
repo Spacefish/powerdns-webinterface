@@ -117,5 +117,3 @@ class Action_Domains extends Action {
 		$this->msg(self::MSG_OK, _("Domain has been created!"));
 	}
 }
-
-?>

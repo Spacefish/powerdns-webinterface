@@ -12,5 +12,3 @@ $cfg['record_types'] = array(
 	"SRV",
 	"TXT",
 );
-
-?>

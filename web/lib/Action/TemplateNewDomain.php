@@ -57,4 +57,3 @@ class Action_TemplateNewDomain extends Action {
 		$this->cmd("reloadRecords(fields);");
 	}
 }
-?>

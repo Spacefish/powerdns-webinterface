@@ -6,5 +6,3 @@ class Page_Overview extends Page {
 		$this->tpl = "overview.tpl";
 	}
 }
-
-?>

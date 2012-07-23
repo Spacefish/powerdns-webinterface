@@ -12,5 +12,3 @@ class Page_Exception extends Page {
 		));
 	}
 }
-
-?>

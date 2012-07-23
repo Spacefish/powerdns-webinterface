@@ -7,5 +7,3 @@ class Action_Logout extends Action {
 		exit;
 	}
 }
-
-?>

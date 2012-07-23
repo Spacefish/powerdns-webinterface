@@ -22,5 +22,3 @@ class Page_User extends Page {
 		));
 	}
 }
-
-?>

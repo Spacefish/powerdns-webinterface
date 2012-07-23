@@ -20,7 +20,7 @@
 			<td onclick="editrow(fields, {$record.id});"><div style="overflow: hidden; max-width: 500px;"><span id="records_content_{$record.id}">{$record.content}</span></div></td>
 			<td onclick="editrow(fields, {$record.id});"><span id="records_ttl_{$record.id}">{$record.ttl}</span></td>
 			<td onclick="editrow(fields, {$record.id});"><span id="records_prio_{$record.id}">{$record.prio}</span></td>
-			<td><span id="records_change-date_{$record.id}">{$record.change_date|date_format}</span></td>
+			<td><span id="records_change-date_{$record.id}">{$record.change_date|date_format:"%c"}</span></td>
 			<td>
 				{* <a href="#" onclick="editrow(fields, {$record.id});"><img src="/img/icons/pencil.png" /></a> *}
 				<a href="#" onclick="deleterow(fields, {$record.id}); return false;"><img src="img/icons/delete.png" /></a>

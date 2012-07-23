@@ -42,5 +42,3 @@ class Log {
 		echo '</table>';
 	}
 }
-
-?>

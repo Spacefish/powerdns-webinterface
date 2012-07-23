@@ -40,5 +40,3 @@ class ActionLog {
 		$this->db->query($sql);
 	}
 }
-
-?>

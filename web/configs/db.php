@@ -12,5 +12,3 @@ $cfg['db'] = array(
 		"database" => "webdns",
 	)
 );
-
-?>

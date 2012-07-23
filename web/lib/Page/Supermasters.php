@@ -22,5 +22,3 @@ class Page_Supermasters extends Page {
 		));
 	}
 }
-
-?>

@@ -24,7 +24,7 @@ class DB {
     	$this->cfg =& $cfg;
     }
 
-    public function get($db = "default") {
+    public static function get($db = "default") {
     	include 'configs/db.php';
 
     	return new DB($cfg['db'][$db]);
@@ -181,4 +181,3 @@ class DB_Result {
 			return mysql_fetch_assoc($this->qr);
 	}
 }
-?>

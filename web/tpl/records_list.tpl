@@ -23,7 +23,7 @@
 			<td><div style="overflow: hidden; max-width: 500px;">{$record.content}</div></td>
 			<td>{$record.ttl}</td>
 			<td>{$record.prio}</td>
-			<td>{$record.change_date|date_format}</td>
+			<td>{$record.change_date|date_format:"%c"}</td>
 		</tr>
 		{foreachelse}
 		<tr>

@@ -35,5 +35,3 @@ class Page_Login extends Page {
 		));
 	}
 }
-
-?>
