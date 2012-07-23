@@ -1,6 +1,6 @@
 Pre-Requirements:
 - Running and installed pdns server which uses mysql as a backend
-- php support on the webserver (php > 5.x.x should work)
+- php support on the webserver (php > 5.2.x should work)
 - mysql module for php
 - gettext module in php (debian / ubuntu has gettext enabled by default)
 
