@@ -49,7 +49,7 @@ CREATE TABLE `user` (
   `isAdmin` tinyint(4) NOT NULL,
   `canCreateDomain` tinyint(4) NOT NULL,
   `lastLogin` datetime NOT NULL,
-  `lastIp` char(15) collate utf8_unicode_ci NOT NULL,
+  `lastIp` text collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
 

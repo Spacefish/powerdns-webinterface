@@ -26,8 +26,11 @@ class Page_Login extends Page {
 				header("Location: ".$redirect);
 			}
 			else {
-				$this->t->assign("fail", 1);
+				$this->t->assign("fail", true);
 			}
+		}
+		else {
+			$this->t->assign("fail", false);
 		}
 
 		$this->t->assign(array(
