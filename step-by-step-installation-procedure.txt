@@ -1,0 +1,214 @@
+Installation of a DNS server 
+
+Install debian Squeeze
+
+Download  
+apt-get install pdns-server pdns-backend-mysql mysql-client mysql-server
+
+Add 
+vi /etc/powerdns/pdns.conf
+add under the section  launch 
+launch=gmysql
+add this to the follwing file /etc/powerdns/pdns.d/pdns.local
+gmysql-host=127.0.0.1
+gmysql-user=root
+gmysql-password=somethingsecret on the normal place 
+gmysql-dbname=pdns
+
+Log into the database 
+mysql -u root -p 
+
+Create the database
+create database pdns;
+use pdns;
+
+To create database scheme and DNSEC Scheme:
+
+CREATE TABLE domains (
+	id INT auto_increment,
+	name VARCHAR(255) NOT NULL,
+	master VARCHAR(128) DEFAULT NULL,
+	last_check INT DEFAULT NULL,
+	type VARCHAR(6) NOT NULL,
+	notified_serial INT DEFAULT NULL,
+	account VARCHAR(40) DEFAULT NULL,
+	primary key (id)
+) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+ 
+CREATE UNIQUE INDEX name_index ON domains(name);
+
+CREATE TABLE records (
+	id INT AUTO_INCREMENT,
+	domain_id INT DEFAULT NULL,
+	name VARCHAR(255) DEFAULT NULL,
+	type VARCHAR(10) DEFAULT NULL,
+	content VARCHAR(255) DEFAULT NULL,
+	ttl INT DEFAULT NULL,
+	prio INT DEFAULT NULL,
+	change_date INT DEFAULT NULL,
+	ordername VARCHAR(255) DEFAULT NULL,
+	auth BOOL,
+	primary key(id)
+) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE INDEX rec_name_index ON records(name);
+CREATE INDEX nametype_index ON records(name,type);
+CREATE INDEX domain_id ON records(domain_id);
+CREATE INDEX orderindex on records(ordername);
+
+create table supermasters (
+	id INT auto_increment,
+	ip VARCHAR(25) NOT NULL,
+	nameserver VARCHAR(255) NOT NULL,
+	account VARCHAR(40) DEFAULT NULL,
+	PRIMARY KEY(`id`)
+) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `perm` (
+	`userid` int(11) NOT NULL,
+	`domain_id` int(11) NOT NULL,
+	PRIMARY KEY  (`userid`,`domain_id`)
+) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `session` (
+	`sid` char(32) collate utf8_unicode_ci NOT NULL,
+	`data` text collate utf8_unicode_ci NOT NULL,
+	`lastchange` datetime NOT NULL,
+	PRIMARY KEY  (`sid`)
+) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `template_newrecord` (
+	`key` varchar(255) collate utf8_unicode_ci NOT NULL,
+	`value` text collate utf8_unicode_ci NOT NULL,
+	PRIMARY KEY  (`key`)
+) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `template_newrecord` VALUES('ttl', '86400');
+INSERT INTO `template_newrecord` VALUES('name', '');
+INSERT INTO `template_newrecord` VALUES('prio', '0');
+
+CREATE TABLE `template_newrecord_domain` (
+	`domain_id` int(11) NOT NULL,
+	`key` varchar(255) collate utf8_unicode_ci NOT NULL,
+	`value` text collate utf8_unicode_ci NOT NULL,
+	PRIMARY KEY  (`domain_id`,`key`)
+) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `template_records_newdomain` (
+	`id` int(11) NOT NULL auto_increment,
+	`name` varchar(255) collate utf8_unicode_ci NOT NULL,
+	`type` varchar(255) collate utf8_unicode_ci NOT NULL,
+	`content` text collate utf8_unicode_ci NOT NULL,
+	`ttl` int(11) NOT NULL,
+	`prio` int(11) NOT NULL,
+	PRIMARY KEY  (`id`)
+) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1;
+
+INSERT INTO `template_records_newdomain` (`id`, `name`, `type`, `content`, `ttl`, `prio`) VALUES(2, '', 'MX', 'mail.[DOMAIN]', 300, 0);
+INSERT INTO `template_records_newdomain` (`id`, `name`, `type`, `content`, `ttl`, `prio`) VALUES(3, 'mail', 'CNAME', '[DOMAIN]', 300, 0);
+INSERT INTO `template_records_newdomain` (`id`, `name`, `type`, `content`, `ttl`, `prio`) VALUES(4, '', 'SOA', 'dns.[DOMAIN]. hostmaster.[DOMAIN]. 1200 1200 1209600 3600', 300, 0);
+
+CREATE TABLE `user` (
+	`id` int(11) NOT NULL auto_increment,
+	`username` varchar(255) collate utf8_unicode_ci NOT NULL,
+	`password` char(32) collate utf8_unicode_ci NOT NULL,
+	`isAdmin` tinyint(4) NOT NULL,
+	`canCreateDomain` tinyint(4) NOT NULL,
+	`lastLogin` datetime NOT NULL,
+	`lastIp` char(15) collate utf8_unicode_ci NOT NULL,
+	PRIMARY KEY(`id`)
+) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+INSERT INTO `user` VALUES(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, 1, '0000-00-00 00:00:00', '');
+
+CREATE TABLE `actionlog` (
+	`id` int(11) NOT NULL auto_increment,
+	`date` datetime NOT NULL,
+	`username` varchar(200) collate utf8_unicode_ci NOT NULL,
+	`facility` text collate utf8_unicode_ci NOT NULL,
+	`msg` text collate utf8_unicode_ci NOT NULL,
+	PRIMARY KEY (`id`)
+) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE `domainmetadata`(
+	`id` INT auto_increment,
+	`domain_id` INT NOT NULL,
+	`kind` VARCHAR(16),
+	`content` TEXT,
+	primary key(`id`)
+) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1;
+
+CREATE INDEX domainmetaidindex on domainmetadata(domain_id);
+              
+create table `cryptokeys` (
+	`id`INT auto_increment,
+	`domain_id`INT NOT NULL,
+	`flags` INT NOT NULL,
+	`active` BOOL,
+	`content` TEXT,
+	PRIMARY KEY (`id`)
+) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1;
+
+CREATE INDEX domainidindex on cryptokeys(domain_id);
+
+CREATE TABLE `tsigkeys` (
+	`id` INT auto_increment,
+	`name` VARCHAR(255), 
+	`algorithm` VARCHAR(50),
+	`secret` VARCHAR(255),
+	PRIMARY KEY(`id`)
+) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1;
+
+CREATE UNIQUE INDEX namealgoindex on tsigkeys(name, algorithm);
+
+
+
+
+
+
+Install Powerdns-webinterface 
+apt-get install apache2 php5 php5-mysql libapache2-mod-php5
+/etc/init.d/apache2 restart
+
+then get 
+wget http://powerdns-webinterface.googlecode.com/files/powerdns-webinterface-1.5.tar.gz
+
+mkdir powerdns-webinterface
+mv powerdns-webinterface-1.5.tar.gz powerdns-webinterface
+cd powerdns-webinterface/
+tar xvf powerdns-webinterface-1.5.tar.gz
+cd web
+mkdir /var/www/ns
+mv * /var/www/ns
+
+chown -R www-data /var/www/ns/
+chgrp -R www-data /var/www/ns/
+
+rm -rf /var/www/ns/tmp/templates_c/DELETEME
+
+
+Change below file
+vi /var/www/ns/configs/db.php 
+To  
+
+
+<?php
+/**
+ * Please insert your MySQL Database in this configfile!
+ */
+$cfg['db'] = array(
+	"default" => array(
+		"host" => "localhost",
+		"port" => 3306,
+		"username" => "root",
+		"password" => "CHANGE ME",
+		"database" => "pdns",
+	)
+);
+
+
+Installation is ready !!
+
+http://xx.com/ns
+
+Login first time admin/admin change password at first login
