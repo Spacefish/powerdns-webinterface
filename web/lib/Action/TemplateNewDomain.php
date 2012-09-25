@@ -32,7 +32,7 @@ class Action_TemplateNewDomain extends Action {
 		$emptyentrys = 0;
 		if(is_array($this->post['new'])) {
 			foreach($this->post['new'] as $row) {
-				if(!$row['name'] || !$row['content']) {
+				if(!$row['content']) {
 					$emptyentrys++;
 					continue;
 				}
@@ -49,7 +49,7 @@ class Action_TemplateNewDomain extends Action {
 		}
 
 		if($emptyentrys) {
-			$this->msg(self::MSG_INFO, $emptyentrys." were not added because their name or content was empty.");
+			$this->msg(self::MSG_INFO, $emptyentrys." were not added because their content was empty.");
 		}
 
 		$this->msg(self::MSG_OK, _("Saved"));

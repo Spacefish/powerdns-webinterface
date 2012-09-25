@@ -3,6 +3,7 @@
 class Page_Login extends Page {
 	public function LoadPage() {
 		$this->tpl = "login.tpl";
+		$fail = false;
 
 		if($this->app->Auth->isAuthed()) {
 			header("Location: ?p=overview");
@@ -24,17 +25,16 @@ class Page_Login extends Page {
 					$redirect = "?p=overview";
 				}
 				header("Location: ".$redirect);
+				exit;
 			}
 			else {
-				$this->t->assign("fail", true);
+				$fail = true;
 			}
 		}
-		else {
-			$this->t->assign("fail", false);
-		}
-
+		
 		$this->t->assign(array(
 			"username" => addslashes(isset($this->post['username']) ? $this->post['username'] : null),
+			"fail" => $fail
 		));
 	}
 }
