@@ -171,12 +171,12 @@ apt-get install apache2 php5 php5-mysql libapache2-mod-php5
 /etc/init.d/apache2 restart
 
 then get 
-wget http://powerdns-webinterface.googlecode.com/files/powerdns-webinterface-1.5.tar.gz
+wget http://powerdns-webinterface.googlecode.com/files/powerdns-webinterface-1.5.1.tar.gz
 
 mkdir powerdns-webinterface
-mv powerdns-webinterface-1.5.tar.gz powerdns-webinterface
+mv powerdns-webinterface-1.5.1.tar.gz powerdns-webinterface
 cd powerdns-webinterface/
-tar xvf powerdns-webinterface-1.5.tar.gz
+tar xvf powerdns-webinterface-1.5.1.tar.gz
 cd web
 mkdir /var/www/ns
 mv * /var/www/ns

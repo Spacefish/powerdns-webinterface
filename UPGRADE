@@ -1,4 +1,4 @@
-From 1.4 to 1.5
+From 1.4 to 1.5.x
 Make backup of you web/configs/db.php file,
 copy all new scripts to the webserver,
 restore the backedup web/configs/db.php file

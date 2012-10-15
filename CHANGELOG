@@ -1,3 +1,8 @@
+1.5.1
+ - a lot of small bugfixes with undefined index notices
+ - implemented the "search user" feature
+ - added a new documentation for installing
+
 1.5
  - new bundled smarty version (3.1.11)
  - you can now set the default_timezone via config/base.php
