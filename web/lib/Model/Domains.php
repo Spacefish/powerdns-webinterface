@@ -2,13 +2,13 @@
 
 class Model_Domains extends Model {
 	public function getDomainlist($order = "name", $dir = "ASC", $ids = false) {
-		return $this->db->getAll("SELECT * FROM domains".($ids ? " WHERE id IN ('".implode("','", $ids)."')" : "")." ORDER BY ".$order." ".$dir);
+		return $this->db->getAll("SELECT * FROM domains".($ids !== false ? " WHERE id IN ('".implode("','", $ids)."')" : "")." ORDER BY ".$order." ".$dir);
 	}
 
 	public function searchDomainlist($search, $order = "name", $dir = "ASC", $ids = false) {
 		$sql = "SELECT * FROM domains WHERE ";
 		$sql.= "name LIKE '%".addslashes($search)."%'";
-		$sql.= ($ids ? " AND id IN ('".implode("','", $ids)."')" : "");
+		$sql.= ($ids !== false ? " AND id IN ('".implode("','", $ids)."')" : "");
 		$sql.= " ORDER BY ".addslashes($order)." ".addslashes($dir);
 		$data = $this->db->getAll($sql);
 
