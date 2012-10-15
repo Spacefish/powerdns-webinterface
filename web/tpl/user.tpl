@@ -1,5 +1,6 @@
 {literal}
 <script language="javascript" type="text/javascript">
+	var xhr;
 	var fields = {
 		'reloadURL' : '?p=user&pp[ajax]=1',
 		'prefix' : 'users',
@@ -58,8 +59,32 @@
     {
         $("#records_table").tablesorter();
     });
+
+
+    function search(e) {
+	lastsearch = e.value;
+	updateList(e.value);
+    }
+
+    function updateList(search) {
+	if(xhr) {
+		xhr.abort();
+	}
+	xhr = $.post(
+		'?p=user&pp[ajax]=1',
+		{
+			search: search
+		},
+		function(x) {
+			if(!x) { return; }
+			eval("data = "+x+";");
+			$('#user_list').html(data.html);
+		}
+	);
+    }
 </script>
 {/literal}
+
 <div style="border: 1px #888 solid; padding: 10px; color: #555; font-size: 14px;">
 	<table>
 		<tr>
@@ -90,6 +115,13 @@
 	<a href="#" onclick="createUser(); return false;"><img src="img/icons/add.png" /> {t}Create new user{/t}</a>
 </div>
 <br />
+
+<div style="border: 1px #888 solid; padding: 10px; color: #555; font-size: 14px;">
+	{t}Search{/t}: <input type="text" id="searchbox" onkeyup="search(this);"><br />
+</div>
+
+<br />
+
 <div id="users_list">
 	{include file="user_list.tpl"}
 </div>

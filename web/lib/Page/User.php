@@ -17,8 +17,10 @@ class Page_User extends Page {
 			$this->tpl = "user.tpl";
 		}
 
+		$users = $this->db->getAll("SELECT * FROM user".(isset($this->post['search']) ? " WHERE username LIKE '%".addslashes($this->post['search'])."%'" : ""));
+
 		$this->t->assign(array(
-			"users" => $this->db->getAll("SELECT * FROM user"),
+			"users" => $users,
 		));
 	}
 }
