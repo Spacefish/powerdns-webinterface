@@ -2,7 +2,14 @@
 
 class Model_Domains extends Model {
 	public function getDomainlist($order = "name", $dir = "ASC", $ids = false) {
-		return $this->db->getAll("SELECT * FROM domains".($ids !== false ? " WHERE id IN ('".implode("','", $ids)."')" : "")." ORDER BY ".$order." ".$dir);
+		$data = $this->db->getAll("SELECT * FROM domains".($ids !== false ? " WHERE id IN ('".implode("','", $ids)."')" : "")." ORDER BY ".$order." ".$dir);
+		if(is_array($data)) {
+			foreach($data as $key => $entry) {
+                                foreach($entry as $colname => $colvalue) {
+                                        $data[$key][$colname."_clean"] = $colvalue;
+				}
+			}
+		}
 	}
 
 	public function searchDomainlist($search, $order = "name", $dir = "ASC", $ids = false) {
@@ -15,12 +22,11 @@ class Model_Domains extends Model {
 		if(is_array($data)) {
 			foreach($data as $key => $entry) {
 				foreach($entry as $colname => $colvalue) {
-					$data[$key][$colname."_clean"] = $search;
+					$data[$key][$colname."_clean"] = $colvalue;
 					$data[$key][$colname] = str_replace($search, '<span class="search_highlight">'.$search.'</span>', $colvalue);
 				}
 			}
 		}
-
 		return $data;
 	}
 
