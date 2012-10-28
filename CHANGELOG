@@ -1,3 +1,8 @@
+1.5.2
+ - fixed localization bug with gettext where meta-information
+   was displayed inside the page (issue #40)
+ - fixed issue #39 (can´t delete domains)
+
 1.5.1
  - a lot of small bugfixes with undefined index notices
  - implemented the "search user" feature
