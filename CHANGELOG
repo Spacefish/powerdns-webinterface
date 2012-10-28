@@ -1,3 +1,6 @@
+1.5.3
+ - fixes issue 42 where no domains where displayed
+
 1.5.2
  - fixed localization bug with gettext where meta-information
    was displayed inside the page (issue #40)
