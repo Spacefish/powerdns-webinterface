@@ -10,6 +10,7 @@ class Model_Domains extends Model {
 				}
 			}
 		}
+		return $data;
 	}
 
 	public function searchDomainlist($search, $order = "name", $dir = "ASC", $ids = false) {
