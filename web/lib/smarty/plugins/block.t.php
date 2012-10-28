@@ -71,6 +71,9 @@ function strarg($str)
  */
 function smarty_block_t($params, $text, &$smarty)
 {
+	if(strlen($text) == 0)
+		return;
+
 	$text = stripslashes($text);
 
 	// set escape mode
