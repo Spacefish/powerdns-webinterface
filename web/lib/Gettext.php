@@ -56,7 +56,7 @@ class Gettext {
 
 	public function setup($locale) {
 		$locale = $this->findLocale($locale);
-		setlocale(LC_MESSAGES, $locale);
+		$bla = setlocale(LC_MESSAGES, $locale);
 		bindtextdomain("messages", dirname(dirname(__FILE__))."/locale");
 		textdomain("messages");
 		bind_textdomain_codeset("messages", "UTF-8");
