@@ -35,7 +35,9 @@ class Auth {
 		$this->app->Log->debug(_("Forcing Auth"));
 		if(!$this->isAuthed()) {
 			// redirect
-			$newloc = "?p=login&pp[redirect_page]=".$_GET['p']."&pp[redirect_params]=".urlencode(serialize($_GET['pp']));
+			$p = isset($_GET['p']) ? $_GET['p'] : "overview";
+			$pp = isset($_GET['pp']) ? $_GET['pp'] : "";
+			$newloc = "?p=login&pp[redirect_page]=".$_GET['p']."&pp[redirect_params]=".urlencode(serialize($pp));
 			header("Location: ".$newloc, 307);
 			echo _("you are not authed and should have been redirected!");
 			exit;
