@@ -48,7 +48,7 @@ class Application {
 		$includePath[] = ".";
 		$includePath[] = dirname(__FILE__);
 		$includePath[] = dirname(dirname(__FILE__));
-		ini_set("include_path", implode(":", $includePath));
+		ini_set("include_path", implode(PATH_SEPARATOR, $includePath));
 
 		// register autoloader
 		spl_autoload_register(array("Application", "autoload"));
