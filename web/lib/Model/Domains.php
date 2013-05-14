@@ -24,6 +24,7 @@ class Model_Domains extends Model {
 			foreach($data as $key => $entry) {
 				foreach($entry as $colname => $colvalue) {
 					$data[$key][$colname."_clean"] = $colvalue;
+                                        if (strcmp($colname,'id')==0) continue;
 					$data[$key][$colname] = str_replace($search, '<span class="search_highlight">'.$search.'</span>', $colvalue);
 				}
 			}
