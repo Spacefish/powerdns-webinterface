@@ -22,8 +22,9 @@ class Page_Domains extends Page {
 			}
 			else {
 				$domains = $mDomains->searchDomainlist(
-					$this->post['search'], $this->post['col'],
-					$this->post['dir'],
+					isset($this->post['search']) ? $this->post['search'] : "",
+					isset($this->post['col']) ? $this->post['col'] : null,
+					isset($this->post['dir']) ? $this->post['dir'] : null,
 					$this->app->Auth->isAdmin() ? false: $this->getAllowedIds()
 				);
 			}
