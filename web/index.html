@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" media="screen" href="img/style.css" />
+		<script language="javascript" type="text/javascript" src="img/closure-library/closure/goog/base.js"></script>
+		<script language="javascript" type="text/javascript" src="img/deps.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			goog.require('neos.ui.DataTable');
+			goog.require('neosolve.pdns');
+		</script>
+		<script type="text/javascript">
+	  		document.write(neosolve.pdns.mainFrame(
+	  			{
+	  				userinfo: {username: "pete"},
+	  				menuItems: [
+						{icon: "application_view_list", caption: "Overview"},
+						{icon: "database", caption: "Test"},
+						{icon: "database_key", caption: "Bla"}
+					],
+					appInfo: {baseVersion: "2.0b"}
+	  			}
+	  		));
+	  		
+	  		var box1 = new neos.ui.DataTable();
+	        box1.render(goog.dom.getElement('content'));
+	  	</script>
+  	</body>
+</html>
+

@@ -1,0 +1,1 @@
+python img/closure-library/closure/bin/calcdeps.py -p . -o deps -i index.html --output_file=img/deps.js

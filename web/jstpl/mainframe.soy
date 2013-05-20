@@ -1,0 +1,45 @@
+{namespace neosolve.pdns}
+/**
+ * The base frame displayed
+ * @param appInfo Basic information about the application
+ * @param? userinfo Contains information about the user
+ * @param? menuItems Contains a list of menuitems
+ */
+{template .mainFrame}
+	<div id="wrapper">
+		<div id="header">
+			PowerDNS Webinterface
+			{if $userinfo}
+				<div class="logout_button">
+					{msg desc="in the upper right corner next to the logout button (Logged in as Don Joe)"}Logged in as {$userinfo.username}{/msg}&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="?p=login&a[0]=logout-logout">
+						<img src="img/icons/cancel.png" /> {msg desc="after the logout button in the upper right corner"}Logout{/msg}
+					</a>
+				</div>
+			{/if}
+		</div>
+		<div id="main">
+			{if $menuItems}
+				<div class="menu_left" id="menu">
+					<ul>
+						{foreach $menuItem in $menuItems}
+						<li style="list-style-image:url('img/icons/{$menuItem.icon}.png');">
+							<a href="#">
+								{$menuItem.caption}
+							</a>
+						</li>
+						{/foreach}
+					</ul>
+				</div>
+			{/if}
+			<div class="{if $menuItems}contentbox_withmenu{else}contentbox{/if}">
+				<div id="msg"></div>
+				<div id="content"></div>
+				<div class="copyleft">
+					{if $userinfo}PowerDNS Webinterface {$appInfo.baseVersion}<br />{/if}
+					{msg desc="Copyright notice in footer"}Copyright 2011-2013 Timo Witte Licensed under the Apache License (2.0){/msg}
+				</div>
+			</div>
+		</div> // END OF main
+	</div> //END OF wrapper
+{/template}
