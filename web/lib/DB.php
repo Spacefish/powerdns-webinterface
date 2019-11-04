@@ -44,16 +44,13 @@ class DB {
     private function connect() {
     	if($this->connection)
     		return;
-    	$this->connection = mysql_connect($this->cfg['host'], $this->cfg['username'], $this->cfg['password']);
-    	if($error = mysql_error())
-    		throw new Exception(_("Database connection failed: ").$error);
-    	mysql_select_db($this->cfg['database'], $this->connection);
-    	if($error = mysql_error($this->connection))
-    		throw new Exception(_("Database connection failed: ").$error);
+    	$this->connection = mysqli_connect($this->cfg['host'], $this->cfg['username'], $this->cfg['password'], $this->cfg['database']);
+    	if(!$this->connection)
+    		throw new Exception(_("Database connection failed: ").mysqli_connect_error());
 
 	// we use unicode so get into utf8 mode ;)
-    	mysql_query("SET NAMES 'utf8'", $this->connection);
-   	mysql_query("SET CHARACTER SET 'utf8'", $this->connection);
+    	$this->connection->query("SET NAMES 'utf8'");
+   	$this->connection->query("SET CHARACTER SET 'utf8'");
     }
 
     /**
@@ -61,7 +58,7 @@ class DB {
      */
     private function disconnect() {
     	if($this->connection)
-    		mysql_close($this->connection);
+		$this->connection->close();
     }
 
     /**
@@ -82,10 +79,10 @@ class DB {
      */
     private function _doQuery($sql) {
     	$this->connect();
-    	$start = microtime();
-    	$query = mysql_query($sql, $this->connection);
-    	$this->debug[] = array($sql, (microtime()-$start)*100000);
-    	if($error = mysql_error($this->connection))
+    	$start = microtime(true);
+    	$query = $this->connection->query($sql);
+    	$this->debug[] = array($sql, (microtime(true)-$start)*100000);
+    	if($error = $this->connection->error)
     		throw new Exception("Error in SQL Query: {$sql} ({$error})");
     	return new DB_Result($query);
     }
@@ -176,8 +173,8 @@ class DB_Result {
 
 	public function fetchRow($num = 0) {
 		if($num)
-			return mysql_fetch_row($this->qr);
+			return $this->qr->fetch_row();
 		else
-			return mysql_fetch_assoc($this->qr);
+			return $this->qr->fetch_assoc();
 	}
 }
