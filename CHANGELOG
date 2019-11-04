@@ -1,3 +1,7 @@
+1.6.0
+ - PHP 7.x compatible
+ - use mysqli instead of mysql
+
 1.5.3
  - fixes issue 42 where no domains where displayed
 
